@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Documents and tools based on internet technology, including certifications, Cisco, Juniper, Protocols, IP, Personal Computers, PC, Microsoft SQL Server, MySQL, Security, Telecommunications, Unix, Linux, FreeBSD, Web, PHP, Perl, Regular Expressions, Regex">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->    
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />    
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5890178766164948",
+          enable_page_level_ads: true
+     });
+     </script>-->
+  </head>
+
+  <body>
+  <!-- container section start -->
+  <section id="container" class="">
+     
+      
+      <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            <!--logo start-->
+            <!--<a href="/" class="logo">Networking.<span class="lite">Ringofsaturn.com</span></a>-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+
+            <!--<div class="top-nav notification-row">-->                
+                <!--  search form start -->
+                <!--<ul class="nav top-menu">                    
+                    <li>
+                        <form class="navbar-form" method="get" action="/search.php">
+                            <input type="hidden" name="ul" value="networking.ringofsaturn.com">
+                            <input class="form-control" placeholder="Search" type="search" name="q" value="">
+                        </form>
+                    </li>                    
+                </ul>-->
+                <!--  search form end -->                
+            </div>
+      </header>      
+      <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+
+<li class="sub-menu">
+<a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+<ul class="sub">
+<li><a class="" href="/Unix/5simplegreprecipes.php">Introduction to command line</a></li>
+
+</ul>
+</li>
+
+</ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
+          <!-- Responsive Header/Footer -->
+          <!--<ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-5890178766164948"
+               data-ad-slot="2148123610"
+               data-ad-format="auto"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>-->
+
+<B>Introduction to Command Line</B><BR>
+ 
+ <div>
+ <h3><u>The Prompt</u></h3>
+<p>The prompt tells you that you are user <code class="console">sysadmin</code>; the host or computer you are using: <code class="console">localhost</code>; and the directory where you are at: <code class="console">~</code>, which represents your home directory.</p>
+<pre>
+sysadmin@localhost:~$
+</pre>
+		</div>
+		 <div>
+ <h3><u>Show Username</u></h3>
+<p>The following command will display the same information that you see in the first part of the prompt. </br>The output of the <code>whoami</code> command, <code class="console">sysadmin</code>, displays the user name of the current user. 
+Although in this case your username is displayed in the prompt, this command could be used to obtain this information in a situation when the prompt did not contain this information.</p>
+<pre>
+sysadmin@localhost:~$ whoami                            
+sysadmin                                                
+sysadmin@localhost:~$
+</pre>
+		</div>
+		<div>
+ <h3><u>Information About the Current System</u></h3>
+<p>The next command displays information about the current system. To be able to see the name of the kernel you are using, type the following command into the terminal: <code>uname</code>
+</br>Many commands that are executed produce text output like this. You can change what output is produced by a command by using options after the name of the command.
+Options for a command can be specified in several ways. Traditionally in UNIX, options were expressed by a hyphen followed by another character, for example: <code>-n</code>.
+</br>In Linux, options can sometimes also be given by two hyphen characters followed by a word, or hyphenated word, for example: <code>--nodename</code>.</p>
+<pre>
+sysadmin@localhost:~$ uname                             
+Linux 
+sysadmin@localhost:~$ uname -n                          
+localhost                                               
+sysadmin@localhost:~$ uname --nodename                  
+localhost
+</pre>
+		</div>
+		<div>
+ <h3><u>Print Working Directory</u></h3>
+<p>The <code>pwd</code> command is used to display your current "location" or current "working" directory.
+</br>The current directory in the example below is <code class="console">/home/sysadmin</code>. This is also referred to as your home directory, a special place where you have control of files and other users normally have no access. 
+</br>By default, this directory is named the same as your username and is located underneath the <code class="console">/home</code> directory.</p>
+<pre>
+sysadmin@localhost:~$ pwd                                            
+/home/sysadmin                                                       
+sysadmin@localhost:~$
+</pre>
+		</div>
+        </section>
+      </section>
+      <!--main content end-->
+  </section>
+  <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+  </body>
+</html>
