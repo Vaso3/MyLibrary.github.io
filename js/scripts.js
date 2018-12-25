@@ -56,7 +56,7 @@ function initializeJS() {
     jQuery('.toggle-nav').click(function () {
         if (jQuery('#sidebar > ul').is(":visible") === true) {
             jQuery('#main-content').css({
-                'margin-left': '0px'
+                'margin-left': '20px'
             });
             jQuery('#sidebar').css({
                 'margin-left': '-180px'
@@ -65,7 +65,7 @@ function initializeJS() {
             jQuery("#container").addClass("sidebar-closed");
         } else {
             jQuery('#main-content').css({
-                'margin-left': '180px'
+                'margin-left': '200px'
             });
             jQuery('#sidebar > ul').show();
             jQuery('#sidebar').css({
