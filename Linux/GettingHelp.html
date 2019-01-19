@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <b>Getting Help</b>
+                <div>
+                    <h3><u>Access the Manual Page For Help</u></h3>
+                    <p>To learn more about commands, access the <em>manual</em> page for the command with the <code>man</code> command. For example, execute the following command to learn more about the <code>date</code> command.</p>
+                    <pre>
+sysadmin@localhost:~$ man date
+</pre>
+                    <p>Your output should be similar to the following:</p>
+                    <pre class="whitePages">
+DATE(1)                          User Commands                              DATE(1)  
+
+NAME                           
+       date - print or set the system date and time                             
+                                                                              
+SYNOPSIS                                                                      
+       date [OPTION]... [+FORMAT]                                             
+       date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]                      
+                                                                              
+DESCRIPTION                                                                
+       Display the current time in the given FORMAT, or set the system date.  
+
+       -d, --date=STRING                                                      
+              display time described by STRING, not `now'                       
+       -f, --file=DATEFILE                                                    
+              like --date once for each line of DATEFILE                       
+
+       -r, --reference=FILE                                                   
+              display the last modification time of FILE                       
+
+       -R, --rfc-2822                                                         
+              output  date  and time in RFC 2822 format.  Example: Mon, 07 Aug 
+ Manual page date(1) line 1 (press h for help or q to quit)
+</pre>
+                    <p>If the <code>man</code> command can find the manual page for the argument provided, then that manual page will be displayed using a command called <code>less</code>. The following table describes useful keys that can be used with the <code>less</code> command to control the output of the display:</p>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>H</strong> or <strong>h</strong>
+                                </td>
+                                <td>Display the help</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Q</strong> or <strong>q</strong>
+                                </td>
+                                <td>Quit the help or manual page</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Spacebar</strong> or <strong>f</strong> or <strong>PageDown</strong>
+                                </td>
+                                <td>Move a screen forward</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>b</strong> or <strong>PageUp</strong>
+                                </td>
+                                <td>Move a screen backward</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Enter</strong> or <strong>down arrow</strong>
+                                </td>
+                                <td>Move down one line</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Up arrow</strong></td>
+                                <td>Move up one line</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>/</strong> <var>followed by text to search</var>
+                                </td>
+                                <td>Start searching forward</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>?</strong> <var>followed by text to search</var>
+                                </td>
+                                <td>Start searching backward</td>
+                            </tr>
+                            <tr>
+                                <td><strong>n</strong></td>
+                                <td>Move to next text that matches search</td>
+                            </tr>
+                            <tr>
+                                <td><strong>N</strong></td>
+                                <td>Move to previous matching text</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3><u>Show List of Movements Commands</u></h3>
+                    <p>After accessing the manual page, type the letter "h" to see a list of movement commands. After reading the movement commands, type the letter q to get back to the document.</p>
+                    <pre class="whitePages">
+                  SUMMARY OF LESS COMMANDS                                     
+                                               
+    Commands marked with * may be preceded by a number, N.     
+    Notes in parentheses indicate the behavior if N is given.        
+    A key preceded by a caret indicates the Ctrl key; thus ^K is ctrl-K.      
+                                                                  
+  h  H                 Display this help.                             
+  q  :q  Q  :Q  ZZ     Exit.                                          
+ -----------------------------------------------------------------------
+                                                                    
+                         MOVING                                         
+
+e  ^E  j  ^N  CR  *  Forward  one line   (or N lines).             
+y  ^Y  k  ^K  ^P  *  Backward one line   (or N lines).              
+f  ^F  ^V  SPACE  *  Forward  one window (or N lines).             
+b  ^B  ESC-v      *  Backward one window (or N lines).
+z                 *  Forward  one window (and set window to N).  
+w                 *  Backward one window (and set window to N).      
+ESC-SPACE         *  Forward  one window, but don't stop at end-of-file.
+d  ^D             *  Forward  one half-window (and set half-window to N)
+u  ^U             *  Backward one half-window (and set half-window to N)
+ESC-)  RightArrow *  Left  one half screen width (or N positions).     
+HELP -- Press RETURN for more, or q when done
+</pre>
+                </div>
+                <div>
+                    <h3><u>Searching In Manual Page</u></h3>
+                    <p>Searches are not case sensitive and do not "wrap" around from the bottom to top, or vice versa. Start a forward search for the word "file" by typing:<code class="console">/file</code></br>Note that what you are typing will appear at the bottom left portion of the screen.</p>
+                    <pre class="whitePages">
+       -r, --reference=FILE                                                   
+              display the last modification time of FILE                       
+
+       -R, --rfc-2822                                                         
+              output  date  and time in RFC 2822 format.  Example: Mon, 07 Aug
+/file
+</pre>
+                </div>
+                <div>
+                    <h3><u>Find the Forgotten Command</u></h3>
+                    <p>In some cases you may not remember the exact name of the command. In these cases you can use the <code>-k</code> option to the <code>man</code> command and provide a <em>keyword</em> argument. For example, execute the following command to display a summary of all man pages that have the keyword "password" in the description.</br>Note that the apropos command is another way of viewing man page summaries with a keyword.There is no difference between <code>man -k</code> and the <code>apropos</code> command.</p>
+                    <pre>
+sysadmin@localhost:~$ man -k password                                         
+chage (1)            - change user password expiry information                
+chgpasswd (8)        - update group passwords in batch mode                   
+chpasswd (8)         - update passwords in batch mode                         
+cpgr (8)             - copy with locking the given file to the password or gr...
+cppw (8)             - copy with locking the given file to the password or gr...
+expiry (1)           - check and enforce password expiration policy           
+login.defs (5)       - shadow password suite configuration                    
+pam_pwhistory (8)    - PAM module to remember last passwords                  
+pam_unix (8)         - Module for traditional password authentication         
+passwd (1)           - change user password                                   
+passwd (1ssl)        - compute password hashes                                
+passwd (5)           - the password file                                      
+pwck (8)             - verify integrity of password files                     
+pwconv (8)           - convert to and from shadow passwords and groups        
+shadow (5)           - shadowed password file                                 
+shadowconfig (8)     - toggle shadow passwords on and off                     
+unix_chkpwd (8)      - Helper binary that verifies the password of the curren...
+unix_update (8)      - Helper binary that updates the password of a given user
+vipw (8)             - edit the password, group, shadow-password or shadow-gr...
+sysadmin@localhost:~$
+</pre>
+                </div>
+                <div>
+                    <h3><u>Show Man Pages For Particular Word</u></h3>
+                    <p>There are often multiple man pages with the same name. For example, the previous command showed three pages for passwd. Execute the following command to view the man pages for the word <em>passwd</em>.</br>Man pages are not just for Linux commands, but also for system files and other "features" of the Operating System.</br>The different man pages are distinguished by "sections". By default there are nine default sections of man pages:</p>
+                    <ol>
+                        <li>Executable programs or shell commands</li>
+                        <li>System calls (functions provided by the kernel)</li>
+                        <li>Library calls (functions within program libraries)</li>
+                        <li>Special files (usually found in <code class="console">/dev</code>)</li>
+                        <li>File formats and conventions, e.g. <code class="console">/etc/passwd</code>
+                        </li>
+                        <li>Games</li>
+                        <li>Miscellaneous (including macro packages and conventions), e.g. <code class="console">man(7)</code>&gt;, <code class="console">groff(7)</code>
+                        </li>
+                        <li>System administration commands (usually only for root)</li>
+                        <li>Kernel routines [Non standard]</li>
+                    </ol>
+                    <p>When you type a command such as man passwd, the first section is searched and, if a match is found, the man page is displayed. </p>
+                    <pre>
+sysadmin@localhost:~$ man -f passwd                                           
+passwd (5)           - the password file                                      
+passwd (1)           - change user password                                   
+passwd (1ssl)        - compute password hashes                                
+sysadmin@localhost:~$
+</pre>
+                </div>
+                <div>
+                    <h3><u>Display Man Page For Specific Section</u></h3>
+                    <p>To display a man page for a different section, provide the section number as the first argument to the man command. </br>For example, execute the following command: <code>man 5 passwd</code></p>
+                    <pre class="whitePages">
+PASSWD(5)                File Formats and Conversions                PASSWD(5)  
+                                                                              
+NAME                                                                          
+       passwd - the password file                                             
+                                                                              
+DESCRIPTION                                                                   
+       /etc/passwd contains one line for each user account, with seven fields 
+       delimited by colons (":"). These fields are:                           
+                                                                              
+       o   login name                                                         
+                                                                              
+       o   optional encrypted password                                        
+                                                                              
+       o   numerical user ID                                                  
+                                                                              
+       o   numerical group ID                                               
+                                                                              
+       o   user name or comment field                                         
+                                                                              
+       o   user home directory                                                
+                                                                              
+       o   optional user command interpreter                                  
+                                                                                
+ Manual page passwd(5) line 1 (press h for help or q to quit)
+</pre>
+                </div>
+                <div>
+                    <h3><u>Show Man Pages For Particular Word Another Way</u></h3>
+                    <p>Instead of using <code>man -f</code> to display all man page sections for a name, you can also use the <code>whatis</code> command. There is no difference between <code>man -f</code> and the <code>whatis</code> command.</p>
+                    <pre>
+sysadmin@localhost:~$ whatis passwd                                           
+passwd (5)           - the password file                                      
+passwd (1)           - change user password                                   
+passwd (1ssl)        - compute password hashes                                
+sysadmin@localhost:~$
+</pre>
+                </div>
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>
