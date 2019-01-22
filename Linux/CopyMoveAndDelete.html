@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List and Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move and Delete</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <b>Copy Move and Delete Files and Directories</b>
+                <div>
+                    <h3><u>Copy the File</u></h3>
+                    <p>Make a copy of the <code class="console">/etc/hosts</code> file and place it in the current directory. Then list the contents of the current directory before and after the copy.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos     
+<b class="prompt">sysadmin@localhost:~$</b> cp /etc/hosts hosts                                     
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop    Downloads  Pictures  Templates  hosts                              
+Documents  Music      Public    Videos                                             
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Remove and Copy With Feedback</u></h3>
+                    <p>Copy the file, but have the system tell you what is being done. This can be achieved using the <code>-v</code> or <code>--verbose</code> option.</br>Note that the <code>-v</code> switch displays the source and target when the <code>cp</code> command is executed.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                 
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos     
+<b class="prompt">sysadmin@localhost:~$</b> cp -v /etc/hosts hosts
+`/etc/hosts' -> `hosts'                                      
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop    Downloads  Pictures  Templates  hosts                              
+Documents  Music      Public    Videos                                         
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Copy File Using the Period"."</u></h3>
+                    <p>Copy the <code class="console">/etc/hosts</code> file, using the period . character to indicate the current directory as the target.</br>The period . character is a handy way to say "the current directory". It can be used with all Linux commands, not just the <code>cp</code> command.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                 
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos     
+<b class="prompt">sysadmin@localhost:~$</b> cp -v /etc/hosts .
+`/etc/hosts' -> `hosts'                                      
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop    Downloads  Pictures  Templates  hosts                              
+Documents  Music      Public    Videos                                              
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Copy File With Preserved File Attributes</u></h3>
+                    <p>Enter the following commands to copy from the source directory and preserve file attributes by using the <code>-p</code> option.</br>Notice that the date and permission modes were preserved. Note that the timestamp in the output below is the same for both the original and the copy (Jan 22 15:18) in the example provided below.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                 
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos     
+<b class="prompt">sysadmin@localhost:~$</b> cd /etc                                                 
+<b class="prompt">sysadmin@localhost:/etc$</b> ls -l hosts                                          
+-rw-r--r-- 1 root root 150 Jan 22 15:18 hosts                                 
+<b class="prompt">sysadmin@localhost:/etc$</b> cp -p hosts /home/sysadmin                           
+<b class="prompt">sysadmin@localhost:/etc$</b> cd                                                   
+<b class="prompt">sysadmin@localhost:~$</b> ls -l hosts                                             
+-rw-r--r-- 1 sysadmin sysadmin 150 Jan 22 15:18 hosts                                                               
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Copy File Another Example</u></h3>
+                    <p>The first copy with the <code>-p</code> option preserved the original timestamp. Recall that the tilde <code class="console">~</code> represents your home directory (<code class="console">/home/sysadmin</code>). The second copy specified a different filename (newname) as the target. Because it was issued without the <code>-p</code> option, the system used the current date and time for the target, thus, it did not preserve the original timestamp found in the source file <code class="console">/etc/hosts</code>. Finally, note that you can remove more than one file at a time as shown in the last <code>rm</code> command.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                 
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos     
+<b class="prompt">sysadmin@localhost:~$</b> cp -p /etc/hosts ~                                      
+<b class="prompt">sysadmin@localhost:~$</b> cp hosts newname                                        
+<b class="prompt">sysadmin@localhost:~$</b> ls -l hosts newname
+-rw-r--r-- 1 sysadmin sysadmin 150 Jan 22 15:18 hosts                         
+-rw-r--r-- 1 sysadmin sysadmin 150 Jan 22 16:29 newname                        
+<b class="prompt">sysadmin@localhost:~$</b> rm hosts newname                                       
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Copy All Files in a Directory</u></h3>
+                    <p>To copy all files in a directory use the <code>-R</code> option. For this task, you will copy the <code class="console">/etc/udev</code> directory and display the contents of the copied directory.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> mkdir Myetc                                             
+<b class="prompt">sysadmin@localhost:~$</b> cp -R /etc/udev Myetc                                   
+<b class="prompt">sysadmin@localhost:~$</b> ls -l Myetc                                             
+total 0                                                                       
+drwxr-xr-x 1 sysadmin sysadmin 32 Jan 22 16:35 udev                           
+<b class="prompt">sysadmin@localhost:~$</b> ls -lR Myetc                                            
+Myetc:                                                                        
+total 0                                                                       
+drwxr-xr-x 1 sysadmin sysadmin 32 Jan 22 16:35 udev                           
+                                                                              
+Myetc/udev:                                                                   
+total 4                                                                       
+drwxr-xr-x 1 sysadmin sysadmin  56 Jan 22 16:35 rules.d                       
+-rw-r--r-- 1 sysadmin sysadmin 218 Jan 22 16:35 udev.conf                     
+                                                                              
+Myetc/udev/rules.d:                                                           
+total 8                                                                       
+-rw-r--r-- 1 sysadmin sysadmin  306 Jan 22 16:35 70-persistent-cd.rules       
+-rw-r--r-- 1 sysadmin sysadmin 1157 Jan 22 16:35 README                                       
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Remove Directory</u></h3>
+                    <p>To remove a directory use the <code>-r</code> option to the <code>rm</code> command.</br>Note that the <code>rmdir</code> command can also be used to delete directories, but only if the directory is empty. Also note the <code>-r</code> option. This option removes directories and their contents recursively.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop    Downloads  Myetc     Public     Videos                             
+Documents  Music      Pictures  Templates                                     
+<b class="prompt">sysadmin@localhost:~$</b> rm -r Myetc                                             
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos                                        
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Moving Files</u></h3>
+                    <p>Moving a file is analogous to a "cut and paste". The file is “cut” (removed) from the original location and “pasted” to the specified destination.</br>Move a file in the local directory by executing the following commands:
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>Linux Command</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>touch premove</code></td>
+                                    <td>Creates an empty file called <code class="console">premove</code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>mv premove postmove</code></td>
+                                    <td>This command “cuts” the <code class="console">premove</code> file and “pastes” it to a file called <code class="console">postmove</code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>rm postmove</code></td>
+                                    <td>Removes <code class="console">postmove</code> file</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> touch premove                                           
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop    Downloads  Pictures  Templates  premove                            
+Documents  Music      Public    Videos                                        
+<b class="prompt">sysadmin@localhost:~$</b> mv premove postmove                                     
+<b class="prompt">sysadmin@localhost:~$</b> ls                                                      
+Desktop    Downloads  Pictures  Templates  postmove                           
+Documents  Music      Public    Videos                                        
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>

@@ -27,7 +27,6 @@
     <script src="js/highlight.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
-
     </script>
 
     <script>
@@ -42,7 +41,6 @@
                 drugi.style.display = "block";
             }
         }
-
     </script>
     <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
@@ -103,6 +101,9 @@
                         <ul class="sub">
                             <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
                             <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List and Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move and Delete</a></li>
                         </ul>
                     </li>
 
@@ -132,16 +133,16 @@
                         <h3><u>The Prompt</u></h3>
                         <p>The prompt tells you that you are user <code class="console">sysadmin</code>; the host or computer you are using: <code class="console">localhost</code>; and the directory where you are at: <code class="console">~</code>, which represents your home directory.</p>
                         <pre>
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Show Username</u></h3>
                         <p>The following command will display the same information that you see in the first part of the prompt. </br>The output of the <code>whoami</code> command, <code class="console">sysadmin</code>, displays the user name of the current user. Although in this case your username is displayed in the prompt, this command could be used to obtain this information in a situation when the prompt did not contain this information.</p>
                         <pre>
-sysadmin@localhost:~$ whoami                            
+<b class="prompt">sysadmin@localhost:~$</b> whoami                            
 sysadmin                                                
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                 </section>
@@ -152,11 +153,11 @@ sysadmin@localhost:~$
                             </br>Many commands that are executed produce text output like this. You can change what output is produced by a command by using options after the name of the command. Options for a command can be specified in several ways. Traditionally in UNIX, options were expressed by a hyphen followed by another character, for example: <code>-n</code>.
                             </br>In Linux, options can sometimes also be given by two hyphen characters followed by a word, or hyphenated word, for example: <code>--nodename</code>.</p>
                         <pre>
-sysadmin@localhost:~$ uname                             
+<b class="prompt">sysadmin@localhost:~$</b> uname                             
 Linux 
-sysadmin@localhost:~$ uname -n                          
+<b class="prompt">sysadmin@localhost:~$</b> uname -n                          
 localhost                                               
-sysadmin@localhost:~$ uname --nodename                  
+<b class="prompt">sysadmin@localhost:~$</b> uname --nodename                  
 localhost
 </pre>
                     </div>
@@ -166,297 +167,297 @@ localhost
                             </br>The current directory in the example below is <code class="console">/home/sysadmin</code>. This is also referred to as your home directory, a special place where you have control of files and other users normally have no access.
                             </br>By default, this directory is named the same as your username and is located underneath the <code class="console">/home</code> directory.</p>
                         <pre>
-sysadmin@localhost:~$ pwd                                            
+<b class="prompt">sysadmin@localhost:~$</b> pwd                                            
 /home/sysadmin                                                       
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>The Echo Command</u></h3>
                         <p>The <code>echo</code> command can be used to print text, the value of a variable and show how the shell environment expands metacharacters.</p>
                         <pre>
-sysadmin@localhost:~$ echo Hello World                             
+<b class="prompt">sysadmin@localhost:~$</b> echo Hello World                             
 Hello World                                                        
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display the Value of the PATH Variable</u></h3>
                         <p>The PATH variable is displayed by placing a <code>$</code> character in front of the name of the variable. This variable is used to find the location of commands. </br>Each of the directories listed below are searched when you run a command. </br>If you try to run the <code>date</code> command, the shell will first look for the command in the <code class="console">/home/sysadmin/bin</code> directory and then in the <code class="console">/usr/local/sbin</code> directory and so on. Once the <code>date</code> command is found, the shell "runs it”.</p>
                         <pre>
-sysadmin@localhost:~$ echo $PATH                                    
+<b class="prompt">sysadmin@localhost:~$</b> echo $PATH                                    
 /home/sysadmin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games                                                 
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Find Out Location of the Command</u></h3>
                         <p>Use the <code>which</code> command to determine if there is an executable file named <em>date</em> that is located in a directory listed in the PATH value.</br>The output of the <code>which</code> command tells you that when you execute the <code>date</code> command, the system will run the command <code class="console">/bin/date</code>. The <code>which</code> command makes use of the PATH variable to determine the location of the <code>date</code> command.</p>
                         <pre>
-sysadmin@localhost:~$ which date                                    
+<b class="prompt">sysadmin@localhost:~$</b> which date                                    
 /bin/date                                                           
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display All Filenames In the Current Directory Using Echo</u></h3>
                         <p>The use of <em>glob</em> characters in Linux is similar to what many operating systems refer to as "wildcard" characters. Using glob characters, you match filenames using patterns. </br>The asterisk * matches "zero or more" characters in a file name. In the example above, this results in matching all filenames in the current directory. </br>The <code>echo</code> command, in turn, displays the filenames that were matched.</p>
                         <pre>
-sysadmin@localhost:~$ echo *                                         
+<b class="prompt">sysadmin@localhost:~$</b> echo *                                         
 Desktop Documents Downloads Music Pictures Public Templates Videos   
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display All Filenames In the Current Directory That Start With the Letter "D" and "P"</u></h3>
                         <p>In the first example, D*, as "match all filenames in the current directory that begin with a capital <em>d</em> character and have zero or more of any other character after the D".</p>
                         <pre>
-sysadmin@localhost:~$ echo D*                                        
+<b class="prompt">sysadmin@localhost:~$</b> echo D*                                        
 Desktop Documents Downloads                                          
-sysadmin@localhost:~$ echo P*                                        
+<b class="prompt">sysadmin@localhost:~$</b> echo P*                                        
 Pictures Public                                                      
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display All Filenames In the Current Directory That end in the letter "s"</u></h3>
                         <p>The asterisk * can be used anywhere in the string.</p>
                         <pre>
-sysadmin@localhost:~$ echo *s                                        
+<b class="prompt">sysadmin@localhost:~$</b> echo *s                                        
 Documents Downloads Pictures Templates Videos                        
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames Using the Asterisk Multiple Times</u></h3>
                         <p>Notice that the asterisk can also appear multiple times or in the middle of several characters.</p>
                         <pre>
-sysadmin@localhost:~$ echo D*n*s                                     
+<b class="prompt">sysadmin@localhost:~$</b> echo D*n*s                                     
 Documents Downloads                                                  
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames Using Question Mark</u></h3>
                         <p>The question mark matches exactly one character. This single character can be any possible character. </br>Like the asterisk it can be used anywhere in a string and can appear multiple times. Typing six of them will match six character filenames.</p>
                         <pre>
-sysadmin@localhost:~$ echo ??????                                    
+<b class="prompt">sysadmin@localhost:~$</b> echo ??????                                    
 Public Videos                                                        
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames Using Question Mark</u></h3>
                         <p>Using the question mark with other characters will limit the matches. Type the following to display the file names that start with the letter <em>D</em> and are exactly nine characters long</p>
                         <pre>
-sysadmin@localhost:~$ echo D????????                                 
+<b class="prompt">sysadmin@localhost:~$</b> echo D????????                                 
 Documents Downloads                                                  
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames with Combination of Glob Characters</u></h3>
                         <p>Wildcards or glob characters can be combined together. The following command will display file names that are at least six characters long and end in the letter <em>"s"</em>. </br>Think of the pattern ?????*s to mean "match filenames that begin with any five characters, then have zero or more of any characters and then end with an <em>"s"</em> character".</p>
                         <pre>
-sysadmin@localhost:~$ echo ?????*s                                   
+<b class="prompt">sysadmin@localhost:~$</b> echo ?????*s                                   
 Documents Downloads Pictures Templates Videos                        
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames Using a Square Brackets</u></h3>
                         <p>The next glob is similar to the question mark glob to specify one character.This glob uses a pair of square brackets [ ] to specify which one character will be allowed. The allowed characters can be specified as a range, a list, or by what is known as a character class. The allowed characters can also be negated with an exclamation point <code>!</code>. In the first example, the first character of the file name can be either a <em>D</em> or a <em>P</em>. In the second example, the first character can be any character except a <em>D</em> or <em>P</em></p>
                         <pre>
-sysadmin@localhost:~$ echo [DP]*                                     
+<b class="prompt">sysadmin@localhost:~$</b> echo [DP]*                                     
 Desktop Documents Downloads Pictures Public                          
-sysadmin@localhost:~$ echo [!DP]*                                    
+<b class="prompt">sysadmin@localhost:~$</b> echo [!DP]*                                    
 Music Templates Videos                                               
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames with Combination of Glob Characters</u></h3>
                         <p>Wildcards or glob characters can be combined together. The following command will display file names that are at least six characters long and end in the letter <em>"s"</em>. </br>Think of the pattern ?????*s to mean "match filenames that begin with any five characters, then have zero or more of any characters and then end with an <em>"s"</em> character".</p>
                         <pre>
-sysadmin@localhost:~$ echo ?????*s                                   
+<b class="prompt">sysadmin@localhost:~$</b> echo ?????*s                                   
 Documents Downloads Pictures Templates Videos                        
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames Using a Square Brackets</u></h3>
                         <p>The next glob is similar to the question mark glob to specify one character.This glob uses a pair of square brackets [ ] to specify which one character will be allowed. The allowed characters can be specified as a range, a list, or by what is known as a character class. The allowed characters can also be negated with an exclamation point <code>!</code>. In the first example, the first character of the file name can be either a <em>D</em> or a <em>P</em>. In the second example, the first character can be any character except a <em>D</em> or <em>P</em></p>
                         <pre>
-sysadmin@localhost:~$ echo [DP]*                                     
+<b class="prompt">sysadmin@localhost:~$</b> echo [DP]*                                     
 Desktop Documents Downloads Pictures Public                          
-sysadmin@localhost:~$ echo [!DP]*                                    
+<b class="prompt">sysadmin@localhost:~$</b> echo [!DP]*                                    
 Music Templates Videos                                               
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Display Filenames Using a Square Brackets With Range</u></h3>
                         <p>In these next examples, a range of characters will be specified. In the first example, the first character of the file name can be any character starting at D and ending at P. In the second example, this range of characters is negated, meaning any single character will match as long as it is not between the letters D and P</br>The ASCII text table is used to determine the range of characters. You can view this table by searching for it on the Internet or typing the following command: <code>ascii</code></p>
                         <pre>
-sysadmin@localhost:~$ echo [D-P]*                                    
+<b class="prompt">sysadmin@localhost:~$</b> echo [D-P]*                                    
 Desktop Documents Downloads Music Pictures Public                    
-sysadmin@localhost:~$ echo [!D-P]*                                   
+<b class="prompt">sysadmin@localhost:~$</b> echo [!D-P]*                                   
 Templates Videos                                                     
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Commands Using Back Quotes</u></h3>
                         <p>To execute the <code>date</code> command within the line of the <code>echo</code> command, use back quotes `.</p>
                         <pre>
-sysadmin@localhost:~$ echo Today is `date`                                      
+<b class="prompt">sysadmin@localhost:~$</b> echo Today is `date`                                      
 Today is Sat Jan 19 15:59:28 UTC 2019                                           
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Commands Using $ Sign And Brackets</u></h3>
                         <p>You can also place $( before the command and ) after the command to accomplish command substitution. </br>Backquotes look very similar to single quotes, making it harder to "see" what a command is supposed to do. Originally shells used backquotes; the $(<code>command</code>) format was added in a later version of the Bash shell to make the statement more visually clear.</p>
                         <pre>
-sysadmin@localhost:~$ echo Today is $(date)                                     
+<b class="prompt">sysadmin@localhost:~$</b> echo Today is $(date)                                     
 Today is Sat Jan 19 16:03:12 UTC 2019                                           
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Disabling Back Quotes</u></h3>
                         <p>If you don't want the backquotes to be used to execute a command, place single quotes around them.</p>
                         <pre>
-sysadmin@localhost:~$ echo This is the command '`date`'             
+<b class="prompt">sysadmin@localhost:~$</b> echo This is the command '`date`'             
 This is the command `date`                                           
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Disabling Back Quotes Another Way</u></h3>
                         <p>Note that you could also place a backslash character in front of each backquote character.</p>
                         <pre>
-sysadmin@localhost:~$ echo This is the command \`date\`              
+<b class="prompt">sysadmin@localhost:~$</b> echo This is the command \`date\`              
 This is the command `date`                                           
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Command With Double Quotes</u></h3>
                         <p>Double quote characters don't have any effect on backquote characters. The shell will still use them as command substitution. </p>
                         <pre>
-sysadmin@localhost:~$ echo This is the command "`date`"                         
+<b class="prompt">sysadmin@localhost:~$</b> echo This is the command "`date`"                         
 This is the command Sat Jan 19 16:16:24 UTC 2019                                
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Double Quotes With Wildcard Characters</u></h3>
                         <p>Double quote characters will have an effect on wildcard characters, disabling their special meaning.</p>
                         <pre>
-sysadmin@localhost:~$ echo D*                                        
+<b class="prompt">sysadmin@localhost:~$</b> echo D*                                        
 Desktop Documents Downloads                                          
-sysadmin@localhost:~$ echo "D*"                                      
+<b class="prompt">sysadmin@localhost:~$</b> echo "D*"                                      
 D*                                                                   
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Multiple Commands In One Line</u></h3>
                         <p>As you can see the output shows all three commands executed sequentially.</p>
                         <pre>
-sysadmin@localhost:~$ echo Hello; echo Linux; echo Student           
+<b class="prompt">sysadmin@localhost:~$</b> echo Hello; echo Linux; echo Student           
 Hello                                                                
 Linux                                                              
 Student                                                             
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Multiple Commands In One Line With First Command Failure</u></h3>
                         <p>Note that all three commands still executed even though the first one failed. While you can't see from the output of the <code>false</code> command, it did execute. </br>However, when commands are separated by the ; character, they are completely independent of each other.</p>
                         <pre>
-sysadmin@localhost:~$ false; echo Not; echo Conditional          
+<b class="prompt">sysadmin@localhost:~$</b> false; echo Not; echo Conditional          
 Not                                                       
 Conditional                                              
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Multiple Commands In One Line Using "logical and"</u></h3>
                         <p>Because each echo statement executes correctly, a return value of success is provided, allowing the next statement to also be executed.</p>
                         <pre>
-sysadmin@localhost:~$ echo Start && echo Going && echo Gone          
+<b class="prompt">sysadmin@localhost:~$</b> echo Start && echo Going && echo Gone          
 Start                                                                
 Going                                                                
 Gone                                                                 
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Multiple Commands In One Line Using "logical and" With Failure</u></h3>
                         <p>The first echo command succeeds and we see its output. The false command executes with a failure result, so the last echo statement is not executed.</p>
                         <pre>
-sysadmin@localhost:~$ echo Success && false && echo Bye              
+<b class="prompt">sysadmin@localhost:~$</b> echo Success && false && echo Bye              
 Success                                                              
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Executing Multiple Commands In One Line Using "logical or" Statement</u></h3>
                         <p>The "or" characters separating the following commands demonstrates how the failure before the "or" statement causes the command after it to execute; however, a successful first statement causes the command to not execute.</p>
                         <pre>
-sysadmin@localhost:~$ false || echo Fail Or                         
+<b class="prompt">sysadmin@localhost:~$</b> false || echo Fail Or                         
 Fail Or                                                              
-sysadmin@localhost:~$ true || echo Nothing to see here                    
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b> true || echo Nothing to see here                    
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>Shell History</u></h3>
                         <p>The first and easiest way to recall a previous command is to use the <b>up arrow key</b>. Each press of the <b>up arrow key</b> goes backwards one command through history. When you find the command that you want to execute, you can use the <b>left arrow keys</b> and <b>right arrow keys</b> to position the cursor for editing.<br/>Another way to use your command history is to execute the <code>history</code> command to be able to view a numbered history list. The number listed to the left of the command can be used to execute the command again. The <code>history</code> command also has a number of options and arguments which can manipulate which commands will be stored or displayed.</p>
                         <pre>
-sysadmin@localhost:~$ echo Hi
+<b class="prompt">sysadmin@localhost:~$</b> echo Hi
 Hi
-sysadmin@localhost:~$ history
+<b class="prompt">sysadmin@localhost:~$</b> history
     1 date
     2 clear
     3 echo Hi 
     4 history
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>See a Limited Number of History Commands</u></h3>
                         <p>To view a limited number of commands, the <code>history</code> command can take a number as a parameter to display exactly that many recent entries.</p>
                         <pre>
-sysadmin@localhost:~$ history 5                                      
+<b class="prompt">sysadmin@localhost:~$</b> history 5                                      
    185  false || Fail Or                                       
    186  false || echo Fail Or                                        
    187  true || echo Nothing to see here                             
    188  history                                        
    189  history 5                                                  
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>See a Limited Number of History Commands</u></h3>
                         <p>To execute a command again, type the exclamation point and the history list number. For example, to execute the 94th command in your history list, you would execute the following.</p>
                         <pre>
-sysadmin@localhost:~$ !94                                                        
+<b class="prompt">sysadmin@localhost:~$</b> !94                                                        
 echo Today is `date`                                                            
 Today is Sat Jan 19 16:50:23 UTC 2019                                           
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                     <div>
                         <h3><u>See a Limited Number of History Commands</u></h3>
                         <p>To execute a command again, type the exclamation point and the history list number. For example, to execute the 94th command in your history list, you would execute the following.</p>
                         <pre>
-sysadmin@localhost:~$ !94                                                        
+<b class="prompt">sysadmin@localhost:~$</b> !94                                                        
 echo Today is `date`                                                            
 Today is Sat Jan 19 16:50:23 UTC 2019                                           
-sysadmin@localhost:~$
+<b class="prompt">sysadmin@localhost:~$</b>
 </pre>
                     </div>
                 </section>

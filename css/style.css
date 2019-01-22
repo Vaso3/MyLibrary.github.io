@@ -4926,4 +4926,13 @@ span.customSelect.changed {
 .customSelectInner {
     background:url(../img/customSelect-arrow.gif) no-repeat center right;
 }
+.whitePages{
+color:white;
+}
+.prompt {
+    color: cornflowerblue;
+}
 
+.displayed {
+    color: lightgreen;
+}
