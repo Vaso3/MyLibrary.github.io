@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ViewSearchReg.html">Display, Search Text &amp; Regex</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List &amp; Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move &amp; Delete</a></li>
+                            <li><a class="" href="Archiving.html">Archiving</a></li>
+                            <li><a class="" href="PipesRedir.html">Redirection &amp; Pipes</a></li>
+                            <li><a class="" href="TextEditors.html">Linux Text Editors</a></li>
+                            <li><a class="" href="BasicScripting.html">Basic Scripting</a></li>
+                            <li><a class="" href="HardwareInfo.html">Hardware Information</a></li>
+                            <li><a class="" href="KernelAndProcessInfo.html">Kernel &amp; Process Information</a></li>
+                            <li><a class="" href="SystemLogs.html">System Logs</a></li>
+                            <li><a class="" href="NetworkConfig.html">Network Configuration</a></li>
+                            <li><a class="" href="UserAndGroupAcc.html">User &amp; Group Accounts</a></li>
+                            <li><a class="" href="TheRootUser.html">The Root User</a></li>
+                            <li><a class="" href="CreateUsersAndGroups.html">Create Users &amp; Groups</a></li>
+                            <li><a class="" href="OwnershipsAndPermissions.html">Ownerships &amp; Permissions</a></li>
+                            <li><a class="" href="SpecialPermissions.html">Special Permissions</a></li>
+                            <li><a class="" href="HardAndSoftLinks.html">Hard &amp; Soft Links</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <h1>Text Editors in Linux</h1>
+
+                <div>
+                    <h3><u>Vi Text Editor</u></h3>
+                    <p>In this section, you will explore some of the basic text editing features of the <code>vi</code> editor. All distributions have some version of <code>vi</code>. The <code>vi</code> editor is a powerful text editor with a bit of a learning curve, but capable of performing a wide variety of text editing tasks.The <code>vi</code> editor has two modes: insert and command. In insert mode, you add text to a document. In command mode, operations can be performed such as navigation, searching, saving, and exiting the editor.</p>
+                    <p>To create a new file, execute the following command:</p>
+
+                    <pre class="config">
+vi myfile
+</pre>
+                    <p>Type an <b>i</b> to enter the “insert” mode of <code>vi</code> (more about this later). Then enter the following text:</p>
+                    <pre class="config">
+Welcome to the vi editor.
+It is a very powerful text editor.
+Especially for those who master it.
+</pre>
+                    <p>Then press the <b>Esc</b> key to leave insert mode. Type <i>:wq</i> to write the file to disk and quit.</p>
+                </div>
+                <div>
+                    <h3><u>Open the File in vi Editor</u></h3>
+
+                    <p>Invoke the vi editor to modify the file you created. When vi is invoked ,you are placed in command mode by default.</p>
+                    <pre class="config">vi myfile</pre>
+                    <pre class="ansi-white">
+<span class="ansi-input">W</span>elcome to the vi editor.
+It is a very powerful text editor.
+Especially for those who master it.   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~   
+~
+"myfile" 3 lines, 97 characters</pre>
+                    <p>Notice in the bottom-left, the file name, the number of lines, and the number of characters in the file are displayed.</p>
+                </div>
+                <div>
+                    <h3><u>Moving Cursor</u></h3>
+
+                    <p>Press each of the following keys two times and observe how the cursor moves. Remember that you are in command mode:</p>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>j</code></td>
+                                <td>Moves cursor down one line (same as down arrow)</td>
+                            </tr>
+                            <tr>
+                                <td><code>k</code></td>
+                                <td>Moves cursor up line (same as up arrow)</td>
+                            </tr>
+                            <tr>
+                                <td><code>l</code></td>
+                                <td>Moves cursor to the right one character (same as right arrow)</td>
+                            </tr>
+                            <tr>
+                                <td><code>h</code></td>
+                                <td>Moves cursor to the left one character (same as left arrow)</td>
+                            </tr>
+                            <tr>
+                                <td><code>w</code></td>
+                                <td>Moves cursor to beginning of next word</td>
+                            </tr>
+                            <tr>
+                                <td><code>e</code></td>
+                                <td>Moves cursor to end of word</td>
+                            </tr>
+                            <tr>
+                                <td><code>b</code></td>
+                                <td>Moves cursor to beginning of previous word</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="alert alert-danger"><b>Warning:</b> If you type any other keys then those listed above, you may end up in insert mode. Don't panic! Press the <b>Esc</b> key, then <b>:q!</b> + the <b>Enter</b> key. This should exit <code>vi</code> without saving any changes. Then execute <code>vi myfile</code> and you are back in the <code>vi</code> editor!</p>
+                </div>
+                <div>
+                    <h3><u>Jumps Moving Cursor</u></h3>
+
+                    <p>More vi cursor navigation: Press the following keys and observe how the cursor moves:</p>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Keys</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>$</code></td>
+                                <td>Moves cursor to end of current line (same as <strong>End</strong> key)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>0</code> (zero)</td>
+                                <td>Moves cursor beginning of current line (same as <strong>Home</strong> key)</td>
+                            </tr>
+                            <tr>
+                                <td><code>3G</code></td>
+                                <td>Jumps to third line (<code>nG</code> jumps to the nth line)</td>
+                            </tr>
+                            <tr>
+                                <td><code>1G</code></td>
+                                <td>Jumps to first line</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Shift</strong>+<strong>G</strong>
+                                </td>
+                                <td>Jumps to the last line</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3><u>Moving Cursor to the Beginning of Particular Word</u></h3>
+
+                    <p>Move the cursor to the beginning of the word "very" by pressing the following keys:</p>
+                    <pre class="config">G
+k
+8l (that's the number eight followed by the letter "l")</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">v</span>ery powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Deleting Words</u></h3>
+
+                    <p>Delete the word “very” by issuing the command <i>dw</i> (<b>d</b>elete <b>w</b>ord):</p>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">p</span>owerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Undo Last Operation</u></h3>
+
+                    <p>Undo the last operation:</p>
+                    <pre class="config">u</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">v</span>ery powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Deleting 2 Words</u></h3>
+
+                    <p>Delete two words:</p>
+                    <pre class="config">2dw</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">t</span>ext editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Undo the last operation.</p>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">v</span>ery powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Deleting Characters</u></h3>
+
+                    <p>Delete four characters, one at a time.</p>
+                    <pre class="config">xxxx</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input"> </span>powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Undo Multiple Operations</u></h3>
+
+                    <p>Undo the last 4 operations and recover the deleted characters:</p>
+                    <pre class="config">4u</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">v</span>ery powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Deleting Multiple Characters</u></h3>
+
+                    <p>Delete 14 characters:</p>
+                    <pre class="config">14x</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">t</span>ext editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Undo the last operation.</p>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a <span class="ansi-input">v</span>ery powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Delete the five characters to the left of the cursor (type 5 then <b>Shift</b>+<b>x</b>):</p>
+                    <pre class="config">5X</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It <span class="ansi-input">v</span>ery powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Undo the last operation.</p>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It <span class="ansi-input">i</span>s a very powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <dib>
+                    <h3><u>Deleting Lines</u></h3>
+
+                    <p>Delete the current line:</p>
+                    <pre class="config">dd</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+<span class="ansi-input">E</span>specially for those who master it.
+~
+~
+</pre>
+                    <p>Whatever was lasted deleted or yanked can be “pasted”. Paste the deleted lines below the current line:</p>
+                    <pre class="config">p</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+Especially for those who master it.
+<span class="ansi-input">I</span>t is a very powerful text editor.
+~
+~
+</pre>
+                    <p>Undo the last two operations.</p>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+<span class="ansi-input">I</span>t is a very powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Delete two lines, the current and the next:</p>
+                    <pre class="config">2dd</pre>
+                    <pre class="ansi-white">
+<span class="ansi-input">W</span>elcome to the vi editor.
+~
+~
+</pre>
+                    <p>Undo the last operation.</p>
+                    <pre class="ansi-white"></pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+<span class="ansi-input">I</span>t is a very powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </dib>
+                <div>
+                    <h3><u>Delete From the Current Position to the End of Line</u></h3>
+
+                    <p>Move to the fourth word then delete from the current position to end of line <b>Shift</b>+<b>D</b>:</p>
+                    <pre class="config">4w
+D</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a very<span class="ansi-input"> </span>
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>The command <b>d$</b> also deletes to end of line. The <b>$</b> character, as seen earlier, advances to end of line. Thus, <b>d$</b> deletes to end of line.</p>
+                    <p>Undo the last operatin.</p>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a very <span class="ansi-input">p</span>owerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Joining Lines</u></h3>
+
+                    <p>Join two lines, the current and the next by typing a capital J (<b>Shift</b>+<b>J</b>):</p>
+                    <pre class="config">J</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a very powerful text editor.<span class="ansi-input"> </span> Especially for those who master it.
+~
+~
+</pre>
+                    <p>Undo the last operation.</p>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+It is a very <span class="ansi-input">p</span>owerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Move to the first line, then join tree lines:</p>
+                    <pre class="config">1G
+3J</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.<span class="ansi-input"> </span> It is a very powerful text editor. Especially for those who master it.
+~
+~
+</pre>
+                    <p>Undo the last operation.</p>
+                    <pre class="ansi-white">
+<span class="ansi-input">W</span>elcome to the vi editor.
+It is a very powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Copy Word</u></h3>
+
+                    <p>Copy (or “yank”) the current word:</p>
+                    <pre class="config">yw</pre>
+                    <p class="alert alert-danger">When you copy text, no change will take place on the screen.</p>
+                </div>
+                <div>
+                    <h3><u>Paste Copied Word</u></h3>
+
+                    <p>Paste (or “put”) the copied word before the current cursor:</p>
+                    <pre class="config">P</pre>
+                    <pre class="ansi-white">
+Welcome<span class="ansi-input"> </span>Welcome to the vi editor.
+It is a very powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Undo the last operation.</p>
+                    <pre class="ansi-white">
+<span class="ansi-input">W</span>elcome to the vi editor.
+It is a very powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                </div>
+                <div>
+                    <h3><u>Search For Word to Delete</u></h3>
+
+                    <p>Search for and delete the word <i>text</i> (add a space after the word <i>text</i>):</p>
+                    <pre class="config">:%s/text //g</pre>
+                    <pre class="ansi-white">
+Welcome to the vi editor.
+<span class="ansi-input">I</span>t is a very powerful text editor.
+Especially for those who master it.
+~
+~
+~
+~                                                                         
+~
+~  
+~
+~                                                                         
+~
+~                                                                         
+~
+~  
+~
+~
+~
+~                                                                         
+~
+~ 
+~
+~
+:%s/text //g
+</pre>
+                </div>
+                <div>
+                    <h3><u>Insert Text in the File</u></h3>
+
+                    <p>Navigate to beginning of file, then press <b>i</b> to enter insert mode to add text:</p>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Keys</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1G</td>
+                                <td>Go to beginning of file (<strong>Shift+G</strong>)</td>
+                            </tr>
+                            <tr>
+                                <td>i</td>
+                                <td>Enter insert mode</td>
+                            </tr>
+                            <tr>
+                                <td>Hello and</td>
+                                <td>Add text to document with a space after “<i>and</i>”</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pre class="ansi-white">
+Hello and<span class="ansi-input"> </span>Welcome to the vi editor.
+It is a very powerful text editor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Exit insert mode and return to command mode by pressing the <b>Escape</b> key:</p>
+                    <pre class="config">ESC</pre>
+                </div>
+                <div>
+                    <h3><u>Changing Upper to Lower Case</u></h3>
+
+                    <p>Move forward one space by pressing the lower case l to place the cursor on the W and toggle it to lower case by pressing the tilde (~):</p>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Keys</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>l</code></td>
+                                <td>Lowercase ‘L’ moves forward one space</td>
+                            </tr>
+                            <tr>
+                                <td><code>~</code></td>
+                                <td>
+                                    <strong>Shift+`</strong> changes letter to lower case</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3><u>Save File</u></h3>
+
+                    <p>Save the file. Press the <b>Esc</b> key to ensure you are in command mode. Then type <b>:w</b> and the <b>Enter</b> key:</p>
+                    <pre class="config">:w</pre>
+                    <p>When you press <b>Enter</b> to commit the change, note the message in lower left indicating the file has been written:</p>
+                    <pre class="ansi-white">
+~
+~
+"myfile" 3 lines, 102 characters written
+</pre>
+                </div>
+                <div>
+                    <h3><u>Append Text</u></h3>
+
+                    <p>Append text to the right of the cursor by pressing the letter a. This moves the cursor to the right and enters insert mode. Type the word <i>text</i> followed by a space as shown in image below:</p>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Function/Keys</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a</td>
+                                <td>Enter insert mode.</td>
+                            </tr>
+                            <tr>
+                                <td>text</td>
+                                <td>text followed by a space</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text <span class="ansi-input">e</span>ditor.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Exit insert mode by pressing the <b>Esc</b> key.</p>
+                </div>
+                <div>
+                    <h3><u>Add Blank Line</u></h3>
+
+                    <p>Open a blank line below the current line by typing a lowercase letter o:</p>
+                    <pre class="config">o</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+<span class="ansi-input"> </span>
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Enter the following text:</p>
+                    <pre class="config">This line added by pressing lowercase o.</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+This line was added by pressing lowercase o.<span class="ansi-input"> </span>
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Exit insert mode by pressing the <b>Esc</b> key.</p>
+                </div>
+                <div>
+                    <h3><u>Add Blank Line Above Current Line</u></h3>
+
+
+                    <p>Open a blank line above the current line by pressing uppercase O:</p>
+                    <pre class="config">O</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+<span class="ansi-input"> </span>
+This line was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Enter the following text:</p>
+                    <pre class="config">You just pressed O to open a line above.</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+You just pressed O to open a line above.<span class="ansi-input"> </span>
+This line was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Exit insert mode by pressing the <b>Esc</b> key.</p>
+                </div>
+                <div>
+                    <h3><u>Save the File and Close the Editor</u></h3>
+
+                    <p>Save the file and close the <code>vi</code> editor using any one of the following methods that saves changes:</p>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Function/Keys</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>:x</b></td>
+                                <td>Will save and close the file.</td>
+                            </tr>
+                            <tr>
+                                <td><b>:wq</b></td>
+                                <td>Will write to file and quit.</td>
+                            </tr>
+                            <tr>
+                                <td><b>:wq!</b></td>
+                                <td>Will write to a read-only file, if possible, and quit.</td>
+                            </tr>
+                            <tr>
+                                <td><b>ZZ</b></td>
+                                <td>Will save and close. Notice that no colon <b>:</b> is used in this case.</td>
+                            </tr>
+                            <tr>
+                                <td><b>:q!</b></td>
+                                <td>Exit without saving changes</td>
+                            </tr>
+                            <tr>
+                                <td><b>:e!</b></td>
+                                <td>Discard changes and reload file</td>
+                            </tr>
+                            <tr>
+                                <td><b>:w!</b></td>
+                                <td>Write to read-only, if possible.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3><u>Search For Word in the File</u></h3>
+
+                    <p>Search forward for the word <i>line</i>. You’ll notice the cursor moves to the beginning of the first instance of the word <i>line</i>.</p>
+                    <pre class="config">/line</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+You just pressed O to open a <span class="ansi-input">l</span>ine above.
+This line was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+/ line
+</pre>
+                    <p>Search for the next instance of the word <i>line</i> by pressing the letter <b>n</b>:</p>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+You just pressed O to open a line above.
+This <span class="ansi-input">l</span>ine was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+/ line
+</pre>
+                    <p>Search backward for the word line. You’ll notice the cursor moves to the beginning of the previous instance of the word line.</p>
+                    <pre class="config">?line</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+You just pressed O to open a <span class="ansi-input">l</span>ine above.
+This line was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+?line
+</pre>
+                </div>
+                <div>
+                    <h3><u>Replace Word</u></h3>
+
+                    <p>When you press <b>cw</b> the word <i>line</i> will disappear and you will be in insert mode:</p>
+                    <pre class="config">cw
+entry</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+You just pressed O to open a entry<span class="ansi-input"> </span>above.
+This line was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Press <b>Esc</b> key to exit insert mode.</p>
+                </div>
+                <div>
+                    <h3><u>Add Text at the Beginning of a Line</u></h3>
+
+                    <p>Add text at the beginning of a line. Enter insert mode again and add a line by pressing upper case i:</p>
+                    <pre class="config">I</pre>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor.
+<span class="ansi-input">Y</span>ou just pressed O to open a entry above.
+This line was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p class="alert alert-info">Insert modes include: i, I, a, A, o, and O.</p>
+                    <p>Press <b>Esc</b> key to return to command mode.</p>
+                </div>
+                <div>
+                    <h3><u>Add Text at the End of a Line</u></h3>
+
+                    <p>Add text at the end of a line (uppercase A). First move to the second line and add the phrase <i>Indeed!</i>:</p>
+                    <pre class="config">2G
+A
+[Space]Indeed!</pre>
+                    <p>Press <b>Esc</b> key to return to command mode.</p>
+                    <pre class="ansi-white">
+Hello and welcome to the vi editor.
+It is a very powerful text editor. Indeed<span class="ansi-input">!</span>
+You just pressed O to open a entry above.
+This line was added by pressing lowercase o.
+Especially for those who master it.
+~
+~
+</pre>
+                    <p>Save your changes and exit <code>vi</code>:</p>
+                    <pre class="config">:x</pre>
+                </div>
+
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>

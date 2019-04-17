@@ -27,6 +27,7 @@
     <script src="../js/highlight.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
+
     </script>
 
 </head>
@@ -68,8 +69,23 @@
                             <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
                             <li><a class="" href="GettingHelp.html">Getting Help</a></li>
                             <li><a class="" href="FindingFiles.html">Search for Files</a></li>
-                            <li><a class="" href="ChangeAndListFiles.html">List and Change Directories</a></li>
-                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move and Delete</a></li>
+                            <li><a class="" href="ViewSearchReg.html">Display, Search Text &amp; Regex</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List &amp; Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move &amp; Delete</a></li>
+                            <li><a class="" href="Archiving.html">Archiving</a></li>
+                            <li><a class="" href="PipesRedir.html">Redirection &amp; Pipes</a></li>
+                            <li><a class="" href="TextEditors.html">Linux Text Editors</a></li>
+                            <li><a class="" href="BasicScripting.html">Basic Scripting</a></li>
+                            <li><a class="" href="HardwareInfo.html">Hardware Information</a></li>
+                            <li><a class="" href="KernelAndProcessInfo.html">Kernel &amp; Process Information</a></li>
+                            <li><a class="" href="SystemLogs.html">System Logs</a></li>
+                            <li><a class="" href="NetworkConfig.html">Network Configuration</a></li>
+                            <li><a class="" href="UserAndGroupAcc.html">User &amp; Group Accounts</a></li>
+                            <li><a class="" href="TheRootUser.html">The Root User</a></li>
+                            <li><a class="" href="CreateUsersAndGroups.html">Create Users &amp; Groups</a></li>
+                            <li><a class="" href="OwnershipsAndPermissions.html">Ownerships &amp; Permissions</a></li>
+                            <li><a class="" href="SpecialPermissions.html">Special Permissions</a></li>
+                            <li><a class="" href="HardAndSoftLinks.html">Hard &amp; Soft Links</a></li>
                         </ul>
                     </li>
 
@@ -83,7 +99,7 @@
         <section id="main-content">
             <section class="wrapper">
                 <!-- Responsive Header/Footer -->
-                <b>Finding Files</b>
+                <h1>Finding Files</h1>
                 <div>
                     <h3><u>Search for a File</u></h3>
                     <p>An easy way to search for a file is to use the <code>locate</code> command. For example, you can find the location of the crontab file by executing the following command.</p>
@@ -115,6 +131,87 @@
 passwd: /usr/bin/passwd /etc/passwd /usr/share/man/man1/passwd.1.gz /usr/share/man/man1/passwd.1ssl.gz /usr/share/man/man5/passwd.5.gz                       
 <b class="prompt">sysadmin@localhost:~$</b>
 </pre>
+                </div>
+                <div>
+                    <h3><u>Find Files Using find Command</u></h3>
+
+                    <p>The <code>find</code> command is a very flexible command with a host of options allowing users to locate files based on a vast array of criteria such as filename, size, date, type and permission. The basic command construct is:</p>
+                    <pre class="config">find &lt;directory to start search&gt; -criteria &lt;argument for criteria&gt;</pre>
+                    <p>The command will begin the search in the directory specified and recursively search all of the subdirectories.<br>Search for files beginning in your home directory containing the name bash.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find ~ -name "*bash*"
+/home/sysadmin/.bash_logout
+/home/sysadmin/.bashrc
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Remember that ~ is used to represent your home directory.</p>
+                </div>
+                <div>
+                    <h3><u>Find Last Modified Files</u></h3>
+
+                    <p>Find files that were modified (or created) less than 5 minutes ago in the specified directory.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find ~/Music -mmin -5
+<b class="prompt">sysadmin@localhost:~$</b> touch ~/Music/mysong
+<b class="prompt">sysadmin@localhost:~$</b> find ~/Music -mmin -5
+/home/sysadmin/Music
+/home/sysadmin/Music/mysong
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>The first <code>find</code> command does not find files that were modified within the time specified. You then created a file by using the <code>touch</code> command and ran the find command again, resulting in the <code>find</code> command discovering the new file.<br>The <code class="console">Music</code> directory was displayed with the second <code>find</code> command because the directory was modified, the result of a file being added to the directory.</p>
+                </div>
+                <div>
+                    <h3><u>Find Files by Size</u></h3>
+
+                    <p>Execute the following command to find files in the /usr directory that are larger than 2MB in size.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find /usr -size +2M
+/usr/bin/python2.7
+/usr/lib/perl/5.14.2/auto/Encode/JP/JP.so
+/usr/lib/perl/5.14.2/auto/Encode/KR/KR.so
+/usr/share/GeoIP/GeoIPv6.dat
+/usr/share/file/magic.mgc
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Find Directiries</u></h3>
+
+                    <p>Find files of type "directory" in the specified location.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find /usr/share/bug -type d
+/usr/share/bug
+/usr/share/bug/apt
+/usr/share/bug/gnupg
+/usr/share/bug/initramfs-tools
+/usr/share/bug/procps
+/usr/share/bug/cron
+/usr/share/bug/file
+/usr/share/bug/libmagic1
+/usr/share/bug/logrotate
+/usr/share/bug/man-db
+/usr/share/bug/vim-tiny
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>To verify that the output displays directories, use the <code>-ls</code> option. The <code>find</code> command uses the <code>-print</code> option by default which displays just file names. The <code>-ls</code> option provides file details.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find /usr/share/bug -type d -ls
+2280    0 drwxr-xr-x   1 root     root          138 Jan 29  2015 /usr/share/bug             
+  2281    0 drwxr-xr-x   1 root     root           12 Jan 28  2015 /usr/share/bu
+g/apt
+  2283    0 drwxr-xr-x   1 root     root           14 Jan 28  2015 /usr/share/bug/gnupg
+  2285    0 drwxr-xr-x   1 root     root           12 Jan 28  2015 /usr/share/bug/initramfs-tools
+  2287    0 drwxr-xr-x   1 root     root           14 Jan 28  2015 /usr/share/bug/procps 
+ 10784    0 drwxr-xr-x   1 root     root           26 Jan 29  2015 /usr/share/bug/cron
+ 10787    0 drwxr-xr-x   1 root     root           28 Jan 29  2015 /usr/share/bug/file
+ 10790    0 drwxr-xr-x   1 root     root           28 Jan 29  2015 /usr/share/bug/libmagic1
+ 10793    0 drwxr-xr-x   1 root     root           12 Jan 29  2015 /usr/share/bug/logrotate          
+10795    0 drwxr-xr-x   1 root     root           14 Jan 29  2015 /usr/share/bu
+g/man-db
+ 10797    0 drwxr-xr-x   1 root     root           26 Jan 29  2015 /usr/share/bug/vim-tiny
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Recall that the <i>d</i> character before the permissions <i>rwxr-x-r-x</i> indicates that the file is actually a directory.</p>
                 </div>
 
             </section>

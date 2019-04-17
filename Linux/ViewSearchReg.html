@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ViewSearchReg.html">Display, Search Text &amp; Regex</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List &amp; Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move &amp; Delete</a></li>
+                            <li><a class="" href="Archiving.html">Archiving</a></li>
+                            <li><a class="" href="PipesRedir.html">Redirection &amp; Pipes</a></li>
+                            <li><a class="" href="TextEditors.html">Linux Text Editors</a></li>
+                            <li><a class="" href="BasicScripting.html">Basic Scripting</a></li>
+                            <li><a class="" href="HardwareInfo.html">Hardware Information</a></li>
+                            <li><a class="" href="KernelAndProcessInfo.html">Kernel &amp; Process Information</a></li>
+                            <li><a class="" href="SystemLogs.html">System Logs</a></li>
+                            <li><a class="" href="NetworkConfig.html">Network Configuration</a></li>
+                            <li><a class="" href="UserAndGroupAcc.html">User &amp; Group Accounts</a></li>
+                            <li><a class="" href="TheRootUser.html">The Root User</a></li>
+                            <li><a class="" href="CreateUsersAndGroups.html">Create Users &amp; Groups</a></li>
+                            <li><a class="" href="OwnershipsAndPermissions.html">Ownerships &amp; Permissions</a></li>
+                            <li><a class="" href="SpecialPermissions.html">Special Permissions</a></li>
+                            <li><a class="" href="HardAndSoftLinks.html">Hard &amp; Soft Links</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <h1>Display Text, Search Text and Regex</h1>
+
+                <div>
+                    <h3><u>Viewing Large Text Files</u></h3>
+
+                    <p>Although large text files can be viewed with the <code>cat</code> command, it is inconvenient to scroll backwards towards the top of the file. Additionally, really large files can't be displayed in this manner because the terminal window only stores a specific number of lines of output in memory.<br> The use of the <code>more</code> or <code>less</code> commands allows for the user to the view data a "page" or a line at a time. These "pager" commands also permit other forms of navigation and searching that will be demonstrated in this section.<br>
+                        <p class="alert alert-info">Note: examples are given using both the <code>more</code> and <code>less</code> commands. Most of the time, the commands work the same, however the <code>less</code> command is more advanced and has more features. The <code>more</code> command is still important to know because some Linux distributions don't have the <code>less</code> command, but all Linux distributions have the <code>more</code> command.</p>If you are not interested in viewing the entire file or output as a command, then there are numerous commands that are able to filter the contents of the file or output. <br>In this section, you will learn the use of the <code>head</code> and <code>tail</code> commands to be able to extract information from the top or bottom of the output of a command or file contents.</p>
+                    <p>The <code class="console">/etc/passwd</code> is likely too large to be displayed on the screen without scrolling the screen. To see a demonstration of this, use the <code>cat</code> command to display the entire contents of the <code class="console">/etc/passwd</code> file:</p>
+                    <pre class="config">cat /etc/passwd</pre>
+                    <pre>
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+syslog:x:101:103::/home/syslog:/bin/false
+bind:x:102:105::/var/cache/bind:/bin/false
+sshd:x:103:65534::/var/run/sshd:/usr/sbin/nologin
+operator:x:1000:37::/root:/bin/sh
+sysadmin:x:1001:1001:System Administrator,,,,:/home/sysadmin:/bin/bash
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Display File Contents Using more Command</u></h3>
+                    <p>Use the <code>more</code> command to display the entire contents of the /etc/passwd file:</p>
+                    <pre class="config">more  /etc/passwd</pre>
+                    <pre>
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+syslog:x:101:103::/home/syslog:/bin/false
+bind:x:102:105::/var/cache/bind:/bin/false
+sshd:x:103:65534::/var/run/sshd:/usr/sbin/nologin
+operator:x:1000:37::/root:/bin/sh
+--More--(92%)
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Note: The <i>--More--(92%)</i> indicates you are "in" the <code>more</code> command and 92% through the current data.</p>
+                </div>
+                <div>
+                    <h3><u>Help Screen in more Command</u></h3>
+
+                    <p>While you are in the more command, you can view the help screen by pressing the h key.</p>
+                    <pre>
+Most commands optionally preceded by integer argument k.  Defaults in brackets
+Star (*) indicates argument becomes new default.
+------------------------------------------------------------------------------
+&lt;space&gt;                 Display next k lines of text [current screen size]
+z                       Display next k lines of text [current screen size]*
+&lt;return&gt;                Display next k lines of text [1]*
+d or ctrl-D             Scroll k lines [current scroll size, initially 11]*
+q or Q or &lt;interrupt&gt;   Exit from more
+s                       Skip forward k lines of text [1]
+f                       Skip forward k screenfuls of text [1]
+b or ctrl-B             Skip backwards k screenfuls of text [1]
+'                       Go to place where previous search started
+=                       Display current line number
+/&lt;regular expression&gt;   Search for kth occurrence of regular expression [1]
+n                       Search for kth occurrence of last r.e [1]
+!&lt;cmd&gt; or :!&lt;cmd&gt;       Execute &lt;cmd&gt; in a subshell
+v                       Start up /usr/bin/vi at current line
+ctrl-L                  Redraw screen
+:n                      Go to kth next file [1]
+:p                      Go to kth previous file [1]
+:f                      Display current file name and line number         
+.                       Repeat previous command
+------------------------------------------------------------------------------
+--More--(92%)
+</pre>
+                </div>
+                <div>
+                    <h3><u>Display Contents Using less Command</u></h3>
+
+                    <p>Use the <code>less</code> command to display the entire contents of the <code class="console">/etc/passwd</code> file. Then search for the word <i>bin</i>, use <b>n</b> to move forward, and <b>N</b> to move backwards. Finally, quit the <code>less</code> pager by typing the letter <b>q</b>.</p>
+                    <pre class="config">less /etc/passwd
+/bin
+nnnNNNq</pre>
+                    <p class="alert alert-danger"><b>Important:</b> Unlike the <code>more</code> command which automatically exits when you reach the end of a file, you must press a quit key such as <b>q</b> to quit the <code>less</code> program.</p>
+                </div>
+                <div>
+                    <h3><u>Display Top Part of a File</u></h3>
+
+                    <p>You can use the <code>head</code> command to display the top part of a file. By default, the <code>head</code> command will display the first ten lines of the file.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Display Last Part of a File</u></h3>
+
+                    <p>Use the <code>tail</code> command to display the last ten lines of the <code class="console">/etc/passwd</code> file.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> tail /etc/passwd
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+syslog:x:101:103::/home/syslog:/bin/false
+bind:x:102:105::/var/cache/bind:/bin/false
+sshd:x:103:65534::/var/run/sshd:/usr/sbin/nologin
+operator:x:1000:37::/root:/bin/sh
+sysadmin:x:1001:1001:System Administrator,,,,:/home/sysadmin:/bin/bash
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+
+                    <h3><u>Display First 2 Lines of a File</u></h3>
+
+                    <p>Use the <code>head</code> command to display the first two lines of the <code class="console">/etc/passwd</code> file.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> head -2 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Display Last 5 File Names From Directory</u></h3>
+
+                    <p>Execute the following command line to pipe the output of the <code>ls</code> command to the <code>tail</code> command, displaying the last five file names in the <code class="console">/etc</code> directory.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b>  ls /etc | tail -5
+update-motd.d
+updatedb.conf 
+vim
+wgetrc  
+xml
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>As you've seen, both <code>head</code> and <code>tail</code> commands output ten lines by default. You could also use an option <code>-#</code> (or you can use the option <code>-n #</code>, where <i>#</i> is a number of lines to output). Both commands can be used to read standard input from a pipe that receives output from a command.<br>You have also seen where <code>head</code> and <code>tail</code> commands are different: the <code>head</code> command starts counting its lines to output from the top of the data, whereas the <code>tail</code> command counts the number of lines to output from the bottom of the data. There are some additional differences between these two commands as demonstrated in the next few examples.</p>
+                </div>
+                <div>
+                    <h3><u>Display Particular Number of Lines Using Option -n With head Command</u></h3>
+
+                    <p>Notice the minus symbol <b>-</b> in front of the #(number). For example, if the <code class="console">/etc/passwd</code> contains 24 lines and the following command will display lines 1-4, excluding the last twenty lines.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> head -n -20 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Searching Text Using Regular Expressions</u></h3>
+
+                    <p>The <code>grep</code> command uses basic regular expressions, special characters like wildcards that match patterns in data. The <code>grep</code> command returns the entire line containing the pattern that matches. <br>The <code>-E</code> option to the <code>grep</code> command can be used to perform searches with extended regular expressions, essentially more powerful regular expressions. Another way to use extended regular expressions is to use the <code>egrep</code> command. <br>The <code>fgrep</code> command is used to match literal characters, ignoring the special meaning of regular expression characters.</p>
+                </div>
+                <div>
+                    <h3><u>Simple Search Using grep Command</u></h3>
+
+                    <p>The use of <code>grep</code> in its simplest form is to search for a given string of characters, such as <i>sshd</i> in the <code class="console">/etc/passwd</code> file. The <code>grep</code> command will print the entire line containing the match.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cd /etc
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep sshd passwd
+<span class="ansi-red">sshd</span>:x:103:65534::/var/run/<span class="ansi-red">sshd</span>:/usr/sbin/nologin
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Simple Search Using grep Command Another Example</u></h3>
+
+                    <p>Regular expressions are "greedy" in the sense that they will match every single instance of the specified pattern.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep root passwd
+<span class="ansi-red">root</span>:x:0:0:<span class="ansi-red">root</span>:/<span class="ansi-red">root</span>:/bin/bash
+operator:x:1000:37::/<span class="ansi-red">root</span>:/bin/sh
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                    <p>Note the red highlights indicate what exactly was matched. You can also see that all occurrences of root were matched on each line.</p>
+                </div>
+                <div>
+                    <h3><u>Search Using Regex</u></h3>
+
+                    <p>To limit the output, you can use regular expressions to specify a more precise pattern. For example, the caret ( ^ ) character can be used to match a pattern at the beginning of a line; so when you execute the following command line, only lines that begin with <i>root</i> should be matched and displayed.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep '^root' passwd
+<span class="ansi-red">root</span>:x:0:0:root:/root:/bin/bash
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                    <p class="alert alert-danger"><b>Best Practice:</b> Use single quotes (not double quotes) around regular expressions to prevent the shell program from trying to interpret them.</p>
+                </div>
+                <div>
+                    <h3><u>Match Word at the End of a Line</u></h3>
+
+                    <p>Use the <i>$</i> symbol to match the pattern <i>sync</i> at the end of a line.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep 'sync$' passwd
+sync:x:4:65534:sync:/bin:/bin/<span class="ansi-red">sync</span>
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Search Using Period Character</u></h3>
+
+                    <p>Use the period character <b>.</b> to match any single character. For example, execute the following command to match any character followed by a 'y'.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep '.y' passwd
+<span class="ansi-red">sy</span>s:x:3:3:<span class="ansi-red">sy</span>s:/dev:/bin/sh
+<span class="ansi-red">sy</span>nc:x:4:65534:<span class="ansi-red">sy</span>nc:/bin:/bin/<span class="ansi-red">sy</span>nc
+pro<span class="ansi-red">xy</span>:x:13:13:pro<span class="ansi-red">xy</span>:/bin:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting <span class="ansi-red">Sy</span>stem (admin):/var/lib/gnats:/bin/sh
+nobo<span class="ansi-red">dy</span>:x:65534:65534:nobo<span class="ansi-red">dy</span>:/nonexistent:/bin/sh
+<span class="ansi-red">sy</span>slog:x:101:103::/home/<span class="ansi-red">sy</span>slog:/bin/false
+<span class="ansi-red">sy</span>sadmin:x:1001:1001:<span class="ansi-red">Sy</span>stem Administrator,,,,:/home/<span class="ansi-red">sy</span>sadmin:/bin/bash
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Search Using Pipe Character</u></h3>
+
+                    <p>The pipe character, <b>|</b>, or "alternation operator", acts as an "or" operator. For example, execute the following to attempt to match either sshd, root or operator.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep 'sshd|root|operator' passwd
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                    <p>Observe that the <code>grep</code> command does not recognize the pipe as the alternation operator by default. The <code>grep</code> command is actually including the pipe as a plain character in the pattern to be matched. <br>The use of either <code>grep -E</code> or <code>egrep</code> will allow the use of the extended regular expressions including alternation.</p>
+                    <p>Use the <code>-E</code> switch to allow <code>grep</code> to operate in extended mode in order to recognize the alternation operator.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep -E 'sshd|root|operator' passwd
+<span class="ansi-red">root</span>:x:0:0:<span class="ansi-red">root</span>:/<span class="ansi-red">root</span>:/bin/bash
+<span class="ansi-red">sshd</span>:x:103:65534::/var/run/<span class="ansi-red">sshd</span>:/usr/sbin/nologin
+<span class="ansi-red">operator</span>:x:1000:37::/<span class="ansi-red">root</span>:/bin/sh
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                    <p>Use another extended regular expression, this time with <code>egrep</code> with alternation in a group to match a pattern. The strings <i>nob</i> and <i>non</i> will match</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> egrep 'no(b|n)' passwd
+<span class="ansi-red">nob</span>ody:x:65534:65534:<span class="ansi-red">nob</span>ody:/<span class="ansi-red">non</span>existent:/bin/sh
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                    <p class="alert alert-info"><b>Note:</b> The parenthesis, ( ), were used to limit the "scope" of the | character. Without them, such as nob|n, the pattern would have meant "match either nob or n”</p>
+                </div>
+                <div>
+                    <h3><u>Search For Characters in particular Range</u></h3>
+
+                    <p>The [ ] characters can also be used to match a single character, however unlike the period character <b>.</b>, the [ ] characters are used to specify exactly what character you want to match. For example, if you want to match a numeric character, you can specify [0-9].</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> head passwd | grep '[0-9]'
+root:x:<span class="ansi-red">0</span>:<span class="ansi-red">0</span>:root:/root:/bin/bash
+daemon:x:<span class="ansi-red">1</span>:<span class="ansi-red">1</span>:daemon:/usr/sbin:/bin/sh
+bin:x:<span class="ansi-red">2</span>:<span class="ansi-red">2</span>:bin:/bin:/bin/sh
+sys:x:<span class="ansi-red">3</span>:<span class="ansi-red">3</span>:sys:/dev:/bin/sh
+sync:x:<span class="ansi-red">4</span>:<span class="ansi-red">65534</span>:sync:/bin:/bin/sync
+games:x:</span>:<span class="ansi-red">5</span>:</span>:<span class="ansi-red">60</span>:games:/usr/games:/bin/sh
+man:x:</span>:<span class="ansi-red">6</span>:</span>:<span class="ansi-red">12</span>:man:/var/cache/man:/bin/sh
+lp:x:</span>:<span class="ansi-red">7</span>:</span>:<span class="ansi-red">7</span>:lp:/var/spool/lpd:/bin/sh
+mail:x:</span>:<span class="ansi-red">8</span>:</span>:<span class="ansi-red">8</span>:mail:/var/mail:/bin/sh
+news:x:</span>:<span class="ansi-red">9</span>:</span>:<span class="ansi-red">9</span>:news:/var/spool/news:/bin/sh
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                    <p>Note: The <code>head</code> command was used to limit the output of the <code>grep</code> command.</p>
+                </div>
+                <div>
+                    <h3><u>Search For Specific Number of Digits</u></h3>
+
+                    <p>Suppose you want to search for a pattern containing a sequence of three digits. <br>You can use { } characters with a number to express that you want to repeat a pattern a specific number of times; for example: {3} <br>The use of the numeric qualifier requires the extended mode of <code>grep</code>.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/etc$</b> grep -E '[0-9]{3}' passwd
+sync:x:4:<span class="ansi-red">655</span>:</span>34:sync:/bin:/bin/sync
+nobody:x:<span class="ansi-red">655</span>:</span>34:<span class="ansi-red">655</span>:</span>34:nobody:/nonexistent:/bin/sh
+libuuid:x:<span class="ansi-red">100</span>:</span>:<span class="ansi-red">101</span>:</span>::/var/lib/libuuid:/bin/sh
+syslog:x:<span class="ansi-red">101</span>:</span>:<span class="ansi-red">103</span>:</span>::/home/syslog:/bin/false
+bind:x:<span class="ansi-red">102</span>:</span>:<span class="ansi-red">105</span>:</span>::/var/cache/bind:/bin/false
+sshd:x:<span class="ansi-red">103</span>:</span>:<span class="ansi-red">655</span>:</span>34::/var/run/sshd:/usr/sbin/nologin
+operator:x:<span class="ansi-red">100</span>:</span>0:37::/root:/bin/sh
+sysadmin:x:<span class="ansi-red">100</span>:</span>1:<span class="ansi-red">100</span>:</span>1:System Administrator,,,,:/home/sysadmin:/bin/bash
+<b class="prompt">sysadmin@localhost:~/etc$</b>
+</pre>
+                </div>
+
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>

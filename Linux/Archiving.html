@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ViewSearchReg.html">Display, Search Text &amp; Regex</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List &amp; Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move &amp; Delete</a></li>
+                            <li><a class="" href="Archiving.html">Archiving</a></li>
+                            <li><a class="" href="PipesRedir.html">Redirection &amp; Pipes</a></li>
+                            <li><a class="" href="TextEditors.html">Linux Text Editors</a></li>
+                            <li><a class="" href="BasicScripting.html">Basic Scripting</a></li>
+                            <li><a class="" href="HardwareInfo.html">Hardware Information</a></li>
+                            <li><a class="" href="KernelAndProcessInfo.html">Kernel &amp; Process Information</a></li>
+                            <li><a class="" href="SystemLogs.html">System Logs</a></li>
+                            <li><a class="" href="NetworkConfig.html">Network Configuration</a></li>
+                            <li><a class="" href="UserAndGroupAcc.html">User &amp; Group Accounts</a></li>
+                            <li><a class="" href="TheRootUser.html">The Root User</a></li>
+                            <li><a class="" href="CreateUsersAndGroups.html">Create Users &amp; Groups</a></li>
+                            <li><a class="" href="OwnershipsAndPermissions.html">Ownerships &amp; Permissions</a></li>
+                            <li><a class="" href="SpecialPermissions.html">Special Permissions</a></li>
+                            <li><a class="" href="HardAndSoftLinks.html">Hard &amp; Soft Links</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <h1>Archiving Commands</h1>
+
+                <div>
+                    <h3><u>Create an Archive</u></h3>
+                    <p>Example of using command <code>tar</code> to create an archive of the <code class="console">/etc/udev</code> directory. Save the backup in the <code class="console">~/mybackups</code> directory.</p>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cd
+<b class="prompt">sysadmin@localhost:~$</b> mkdir mybackups
+<b class="prompt">sysadmin@localhost:~$</b> tar -cvf mybackups/udev.tar /etc/udev
+tar: Removing leading `/' from member names
+/etc/udev/
+/etc/udev/rules.d/
+/etc/udev/rules.d/70-persistent-cd.rules
+/etc/udev/rules.d/README
+/etc/udev/udev.conf                                                            
+<b class="prompt">sysadmin@localhost:~$</b>ls mybackups/
+udev.tar
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>The <code>tar</code> command is for merging multiple files into a single file. By default it does not compress the data.<br> The <code>-c</code> option tells the <code>tar</code> command to create a <code>tar</code> file. The <code>-v</code> option stands for "verbose", which instructs the <code>tar</code> command to demonstrate what it is doing. The <code>-f</code> option is used to specify the name of the <code>tar</code> file. <br><br> Command <code>tat</code> stands for Tape ARchive. This command was originally used to create tape backups, but today it is more commonly used to create archive files.</p>
+                    <p class="alert alert-danger"><b>Important:</b> You are not required to use the .tar extension to the archive file name, however it is helpful for determining the file type. It is considered "good style" when sending an archive file to another person.</p>
+                </div>
+                <div>
+                    <h3><u>Display Archived Content</u></h3>
+                    <p>Display the contents of a <code>tar</code> file(<code>t</code> = list contents, <code>v</code> = verbose, <code>f</code> = filename).
+                    </p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> tar -tvf mybackups/udev.tar
+drwxr-xr-x root/root         0 2015-01-28 16:32 etc/udev/
+drwxr-xr-x root/root         0 2015-01-28 16:32 etc/udev/rules.d/
+-rw-r--r-- root/root       306 2015-01-28 16:32 etc/udev/rules.d/70-persistent-cd.rules
+-rw-r--r-- root/root      1157 2012-04-05 19:18 etc/udev/rules.d/README
+-rw-r--r-- root/root       218 2012-04-05 19:18 etc/udev/udev.conf
+<b class="prompt">sysadmin@localhost:~$</b></pre>
+                    <p>Notice that files were backed up recursively using relative path names. This is important because when you extract the files, they will be placed in your current directory, not override the current files.</p>
+                </div>
+
+                <div>
+                    <h3><u>Create Compressed Archive</u></h3>
+                    <p>To create a <code>tar</code> file that is compressed use <code>-z</code> option.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> tar -zcvf mybackups/udev.tar.gz /etc/udev
+tar: Removing leading `/' from member names
+/etc/udev/
+/etc/udev/rules.d/
+/etc/udev/rules.d/70-persistent-cd.rules
+/etc/udev/rules.d/README
+/etc/udev/udev.conf
+<b class="prompt">sysadmin@localhost:~$</b> ls -lh mybackups/
+total 16K
+-rw-rw-r-- 1 sysadmin sysadmin  10K Jan 25 04:00 udev.tar
+-rw-rw-r-- 1 sysadmin sysadmin 1.2K Jan 25 04:34 udev.tar.gz
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Notice the difference in size; first backup (10 Kbytes) is larger than the second backup (1.2 Kbytes).<br> The <code>-z</code> option makes use of the <code>gzip</code> utility to perform compression.</p>
+                </div>
+                <div>
+                    <h3><u>Extract the content of an Archive</u></h3>
+                    <p>Extract the contents of an archive. Data is restored to the current directory by default.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cd mybackups
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls
+udev.tar  udev.tar.gz
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> tar -xvf udev.tar.gz
+etc/udev/
+etc/udev/rules.d/
+etc/udev/rules.d/70-persistent-cd.rules
+etc/udev/rules.d/README
+etc/udev/udev.conf
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+</pre>
+                    <p>If you wanted the files to "go back" into their original location, you could first <code>cd</code> to the <code class="console">/</code> directory and then run the <code>tar</code> command. However, in this example, this would require you to be logged in as an administrator because creating files in the <code class="console">/etc</code> directory can only be done by the administrator.</p>
+                </div>
+                <div>
+                    <h3><u>Add File to an Existing Archive</u></h3>
+                    <p>To add a file to an existing archive, use the <code>-r</code> option to the <code>tar</code> command.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> tar -rvf udev.tar /etc/hosts
+tar: Removing leading `/' from member names
+/etc/hosts
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> tar -tvf udev.tar
+drwxr-xr-x root/root         0 2015-01-28 16:32 etc/udev/                 
+drwxr-xr-x root/root         0 2015-01-28 16:32 etc/udev/rules.d/
+-rw-r--r-- root/root       306 2015-01-28 16:32 etc/udev/rules.d/70-persistent-c
+d.rules                                                                   
+-rw-r--r-- root/root      1157 2012-04-05 19:18 etc/udev/rules.d/README   
+-rw-r--r-- root/root       218 2012-04-05 19:18 etc/udev/udev.conf
+-rw-r--r-- root/root       172 2017-08-21 23:28 etc/hosts
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Compressing Files Using <code>gzip</code> Command</u></h3>
+                    <p>In the following examples, you will use <code>gzip</code> and <code>gunzip</code> to compress and uncompress a file.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> cp /usr/share/dict/words .
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words
+-rw-r--r-- 1 sysadmin sysadmin 938848 Jan 25 07:39 words
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> gzip words
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words.gz
+-rw-r--r-- 1 sysadmin sysadmin 255996 Jan 25 07:39 words.gz
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+                    </pre>
+                    <p>Notice the size of the zipped file (255996 bytes in the example above) is much smaller than the original file (938848 bytes in the example above).</p>
+                    <p class="alert alert-danger"><b>Very important:</b> When you use <code>gzip</code>, the original file is replaced by the zipped file. In the example above, the file <code class="console">words</code> was replaced with <code class="console">words.gz</code>. <br>When you unzip the file, the zipped file will be replaced with the original file.</p>
+                </div>
+                <div>
+                    <h3><u>Decompressing Files</u></h3>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words.gz
+-rw-r--r-- 1 sysadmin sysadmin 255996 Jan 25 07:39 words.gz
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> gunzip words.gz
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words
+-rw-r--r-- 1 sysadmin sysadmin 938848 Jan 25 07:39 words
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+</pre>
+                    <p>Linux provides a large number of compression utilities in addition to <code>gzip</code> / <code>gunzip</code>. Each of them have pros and cons (faster compression, better compression rates, more flexible, more portable, faster decompression, etc.). The <code>gzip</code> / <code>gunzip</code> commands are very popular in Linux, but you should be aware that <code>bzip2</code> / <code>bunzip2</code> are also popular on some Linux distributions. It is fortunate that most of the functionality (the way you run the commands) and options are the same as <code>gzip</code> / <code>gunzip</code>.</p>
+                </div>
+                <div>
+                    <h3><u>Compress Files using bzip2</u></h3>
+                    <p>Using <code>bzip2</code> and <code>bunzip2</code> to compress and uncompress a file is very similar to using <code>gzip</code> and <code>gunzip</code>. The compressed file is created with a <code class="console">.bz2</code> extension. The extension is removed when uncompressed.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words
+-rw-r--r-- 1 sysadmin sysadmin 938848 Jan 25 07:39 words
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> bzip2 words
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words.bz2
+-rw-r--r-- 1 sysadmin sysadmin 335405 Jan 25 07:39 words.bz2
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+</pre>
+                    <p>If you compare the resulting <code class="console">.bz2</code> file size (335405) to the <code class="console">.gz</code> file size (255996) from example above (<u>Compressing Files Using gzip Command</u>), you will notice that <code>gzip</code> did a better job compressing this particular file.</p>
+                </div>
+                <div>
+                    <h3><u>Decompressing Files Using bzip2</u></h3>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words.bz2
+-rw-r--r-- 1 sysadmin sysadmin 335405 Jan 25 07:39 words.bz2
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> bunzip2 words.bz2
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words
+-rw-r--r-- 1 sysadmin sysadmin 938848 Jan 25 07:39 words
+<b class="prompt">sysadmin@localhost:~/mybackups$</b></pre>
+                    <p>While <code>gzip</code> and <code>bzip</code> archive files are commonly used in Linux, the <code>zip</code> archive type is more commonly used by other operating systems, such as Windows. In fact, the Windows Explorer application has built-in support to extract <code>zip</code> archive files. Therefore, if you are planning to share an archive with Windows users, it is usually preferred to use the <code>zip</code> archive type. Unlike <code>gzip</code> and <code>bzip2</code>, when a file is compressed with the <code>zip</code> command, a copy of the original file is compressed and the original remains uncompressed.</p>
+
+                </div>
+
+                <div>
+                    <h3><u>Compress Files Using zip</u></h3>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> zip words.zip words
+  adding: words (deflated 73%)
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> ls -l words.zip
+-rw-rw-r-- 1 sysadmin sysadmin 256132 Jan 25 21:25 words.zip
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+</pre>
+                    <p>The first argument (<code class="console">words.zip</code> in the example above) of the <code>zip</code> command is the file name that you wish to create. <br>The remaining arguments (<code class="console">words</code> in the example above) are the files that you want placed in the compressed file.</p>
+                    <p class="alert alert-danger"><b>Important:</b> You are not required to use the <code class="console">.zip</code> extension to the compressed file name; however, it is helpful for determining the file type. It is also considered "good style" when sending an archive file to another person.</p>
+                </div>
+                <div>
+                    <h3><u>Compress Directory Using zip</u></h3>
+                    <p>Compressing the <code class="console">/etc/udev</code> directory and its contents with <code>.zip</code> compression</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> zip -r udev.zip /etc/udev
+  adding: etc/udev/ (stored 0%)
+  adding: etc/udev/rules.d/ (stored 0%)
+  adding: etc/udev/rules.d/70-persistent-cd.rules (deflated 29%)
+  adding: etc/udev/rules.d/README (deflated 50%)
+  adding: etc/udev/udev.conf (deflated 24%)
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+-rw-rw-r-- 1 sysadmin sysadmin 1840 Jan 25 21:33 udev.zip
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+</pre>
+                    <p>The <code>tar</code> command discussed earlier in this lab automatically descends through any subdirectories of a directory specified to be archived. <br>With the <code>bzip2</code>, <code>gzip</code>, and <code>zip</code> commands the <code>-r</code> option must be specified in order to perform recursion into subdirectories.</p>
+                </div>
+                <div>
+                    <h3><u>Display Content of a zip Archive</u></h3>
+                    <p>To view the contents of a <code>zip</code> archive, use with the <code>-l</code> option with the <code>unzip</code> command.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~/mybackups$</b> unzip -l udev.zip
+Archive:  udev.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2015-01-28 16:32   etc/udev/
+        0  2015-01-28 16:32   etc/udev/rules.d/
+      306  2015-01-28 16:32   etc/udev/rules.d/70-persistent-cd.rules
+     1157  2012-04-05 19:18   etc/udev/rules.d/README
+      218  2012-04-05 19:18   etc/udev/udev.conf
+---------                     -------
+     1681                     5 files
+<b class="prompt">sysadmin@localhost:~/mybackups$</b>
+</pre>
+                </div>
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>

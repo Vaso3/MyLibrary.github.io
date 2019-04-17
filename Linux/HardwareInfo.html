@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ViewSearchReg.html">Display, Search Text &amp; Regex</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List &amp; Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move &amp; Delete</a></li>
+                            <li><a class="" href="Archiving.html">Archiving</a></li>
+                            <li><a class="" href="PipesRedir.html">Redirection &amp; Pipes</a></li>
+                            <li><a class="" href="TextEditors.html">Linux Text Editors</a></li>
+                            <li><a class="" href="BasicScripting.html">Basic Scripting</a></li>
+                            <li><a class="" href="HardwareInfo.html">Hardware Information</a></li>
+                            <li><a class="" href="KernelAndProcessInfo.html">Kernel &amp; Process Information</a></li>
+                            <li><a class="" href="SystemLogs.html">System Logs</a></li>
+                            <li><a class="" href="NetworkConfig.html">Network Configuration</a></li>
+                            <li><a class="" href="UserAndGroupAcc.html">User &amp; Group Accounts</a></li>
+                            <li><a class="" href="TheRootUser.html">The Root User</a></li>
+                            <li><a class="" href="CreateUsersAndGroups.html">Create Users &amp; Groups</a></li>
+                            <li><a class="" href="OwnershipsAndPermissions.html">Ownerships &amp; Permissions</a></li>
+                            <li><a class="" href="SpecialPermissions.html">Special Permissions</a></li>
+                            <li><a class="" href="HardAndSoftLinks.html">Hard &amp; Soft Links</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <h1>Hardware Information</h1>
+
+                <div>
+                    <h3><u>Determine the Type of CPU</u></h3>
+                    <p>In order to determine the type of CPU execute the <code>lscpu</code> command.</p>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                1
+On-line CPU(s) list:   0
+Thread(s) per core:    1
+Core(s) per socket:    1
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 142
+Model name:            Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Stepping:              9
+CPU MHz:               2904.002
+BogoMIPS:              5808.00
+Hypervisor vendor:     KVM
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              4096K
+NUMA node0 CPU(s):     0
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch rdseed clflushopt
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Being able to display CPU information can be important when trying to determine if more advanced Linux features can be used on your system. For even more details about your CPU(s), you can examine the <code class="console">/proc/cpuinfo</code> file.</p>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat /proc/cpuinfo
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+stepping	: 9
+cpu MHz		: 2904.002
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch rdseed clflushopt
+bugs		:
+bogomips	: 5808.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+
+                </div>
+                <div>
+                    <h3><u>RAM Info</u></h3>
+
+                    <p>To discover how much RAM and swap space is being used, use the <code>free</code> command:</p>
+                    <p>The output shows the amount of memory in megabytes when the <code>-m</code> option is used and in gigabytes when the <code>-g</code> option is used.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> free -m
+              total        used        free      shared  buff/cache   available
+Mem:           3951        1041        2210          48         699        2809
+Swap:          4092           0        4092
+
+<b class="prompt">sysadmin@localhost:~$</b> free -g
+              total        used        free      shared  buff/cache   available
+Mem:              3           1           2           0           0           2
+Swap:             3           0           3
+
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>In the output above, you can see that the system has 3951 megabytes (roughly 3 gigabytes) of physical memory (RAM). Of that 1041 megabytes are being used.<br>In the event that you run out of memory, Swap is used. Swap is hard drive space that is used to temporarily store data that is supposed to be stored in RAM.</p>
+
+                </div>
+                <div>
+                    <h3><u>Show Connected Devices</u></h3>
+
+                    <p>To see what devices are connected to the PCI bus, use the <code>lspci</code> command.</p>
+                    <pre><b class="prompt">sysadmin@localhost:~$</b> lspci
+00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
+00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
+00:01.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
+00:02.0 VGA compatible controller: InnoTek Systemberatung GmbH VirtualBox Graphics Adapter
+00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
+00:04.0 System peripheral: InnoTek Systemberatung GmbH VirtualBox Guest Service
+00:05.0 Multimedia audio controller: Intel Corporation 82801AA AC'97 Audio Controller (rev 01)
+00:06.0 USB controller: Apple Inc. KeyLargo/Intrepid USB
+00:07.0 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+00:0d.0 SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02)
+</pre>
+                    <p>The output of the <code>lspci</code> command can be very important to identify devices that are not supported by the Linux kernel. Some devices like video cards may only provide basic functionality without installing proprietary driver software.</p>
+                    <p>Use the <code>lspci</code> command with the <code>-k</code> option to show devices along with the kernel driver and modules used.</p>
+                    <pre><b class="prompt">sysadmin@localhost:~$</b> lspci -k
+00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
+00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
+00:01.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
+	Kernel driver in use: ata_piix
+	Kernel modules: pata_acpi
+00:02.0 VGA compatible controller: InnoTek Systemberatung GmbH VirtualBox Graphics Adapter
+	Kernel driver in use: vboxvideo
+	Kernel modules: vboxvideo
+00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
+	Subsystem: Intel Corporation PRO/1000 MT Desktop Adapter
+	Kernel driver in use: e1000
+	Kernel modules: e1000
+00:04.0 System peripheral: InnoTek Systemberatung GmbH VirtualBox Guest Service
+	Kernel driver in use: vboxguest
+	Kernel modules: vboxguest
+00:05.0 Multimedia audio controller: Intel Corporation 82801AA AC'97 Audio Controller (rev 01)
+	Subsystem: Dell 82801AA AC'97 Audio Controller
+	Kernel driver in use: snd_intel8x0
+	Kernel modules: snd_intel8x0
+00:06.0 USB controller: Apple Inc. KeyLargo/Intrepid USB
+	Kernel driver in use: ohci-pci
+00:07.0 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+	Kernel driver in use: piix4_smbus
+	Kernel modules: i2c_piix4
+00:0d.0 SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02)
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+</pre>
+                </div>
+                <div>
+                    <h3><u>Show USB Connected Devices</u></h3>
+
+                    <p>Attempt to list the USB connected devices.</p>
+                    <pre><b class="prompt">sysadmin@localhost:~$</b> lsusb
+Bus 001 Device 002: ID 80ee:0021 VirtualBox USB Tablet
+Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Show Loaded Modules</u></h3>
+
+                    <p>For hardware to function, the Linux kernel usually loads a driver or module. Use the <code>lsmod</code> command to view the currently loaded modules.</p>
+                    <pre><b class="prompt">sysadmin@localhost:~$</b> lsmod
+Module                  Size  Used by
+nls_utf8               16384  1
+isofs                  40960  1
+squashfs               49152  0
+vboxsf                 45056  0
+crct10dif_pclmul       16384  0
+crc32_pclmul           16384  0
+aesni_intel           167936  0
+aes_x86_64             20480  1 aesni_intel
+lrw                    16384  1 aesni_intel
+gf128mul               16384  1 lrw
+glue_helper            16384  1 aesni_intel
+ablk_helper            16384  1 aesni_intel
+joydev                 20480  0
+cryptd                 20480  2 aesni_intel,ablk_helper
+snd_intel8x0           40960  2
+snd_ac97_codec        131072  1 snd_intel8x0
+ac97_bus               16384  1 snd_ac97_codec
+vboxvideo              53248  2
+ttm                    98304  1 vboxvideo
+snd_pcm               106496  2 snd_ac97_codec,snd_intel8x0
+drm_kms_helper        139264  1 vboxvideo
+snd_seq_midi           16384  0
+drm                   360448  5 ttm,drm_kms_helper,vboxvideo
+snd_seq_midi_event     16384  1 snd_seq_midi
+input_leds             16384  0
+snd_rawmidi            32768  1 snd_seq_midi
+fb_sys_fops            16384  1 drm_kms_helper
+syscopyarea            16384  2 drm_kms_helper,vboxvideo
+snd_seq                69632  2 snd_seq_midi_event,snd_seq_midi
+sysfillrect            16384  2 drm_kms_helper,vboxvideo
+</pre>
+                    <p>The first column is the module name, and the second is the amount of memory used by the module. The number in the "Used by" column indicates how many other modules are using the module. The names of the other modules using the module may also be listed in the "Used by" column, but is often incomplete.</p>
+
+                </div>
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>

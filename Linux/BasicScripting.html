@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ViewSearchReg.html">Display, Search Text &amp; Regex</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List &amp; Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move &amp; Delete</a></li>
+                            <li><a class="" href="Archiving.html">Archiving</a></li>
+                            <li><a class="" href="PipesRedir.html">Redirection &amp; Pipes</a></li>
+                            <li><a class="" href="TextEditors.html">Linux Text Editors</a></li>
+                            <li><a class="" href="BasicScripting.html">Basic Scripting</a></li>
+                            <li><a class="" href="HardwareInfo.html">Hardware Information</a></li>
+                            <li><a class="" href="KernelAndProcessInfo.html">Kernel &amp; Process Information</a></li>
+                            <li><a class="" href="SystemLogs.html">System Logs</a></li>
+                            <li><a class="" href="NetworkConfig.html">Network Configuration</a></li>
+                            <li><a class="" href="UserAndGroupAcc.html">User &amp; Group Accounts</a></li>
+                            <li><a class="" href="TheRootUser.html">The Root User</a></li>
+                            <li><a class="" href="CreateUsersAndGroups.html">Create Users &amp; Groups</a></li>
+                            <li><a class="" href="OwnershipsAndPermissions.html">Ownerships &amp; Permissions</a></li>
+                            <li><a class="" href="SpecialPermissions.html">Special Permissions</a></li>
+                            <li><a class="" href="HardAndSoftLinks.html">Hard &amp; Soft Links</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <h1>Basic Scripting</h1>
+
+                <div>
+                    <h3><u>Simple Shell Script</u></h3>
+
+                    <p>To create a simple shell script, you just need to create a text file and add commands. Create a file called <i>sample.sh</i> and add the following lines:</p>
+                    <pre class="config">echo "Hello there!  Here is the calendar for this month:"
+cal</pre>
+                    <pre class="ansi-white">echo "Hello there! Here is the calendar for this month:"                      
+cal
+~
+~ 
+</pre>
+                    <p>To make it clear that this is a BASH shell script, you need to include a special line at the top of the file called a "shbang" (or "shebang"). This line starts with #! and then contains the path to the BASH shell executable. Add the following line at the top of the sample.sh file:</p>
+                    <pre class="config">#!/bin/bash</pre>
+                    <pre class="ansi-white">#!/bin/bash
+echo "Hello there! Here is the calendar for this month:"
+cal
+~
+~ 
+</pre>
+                    <p>One way that you can run this program is by typing <code>bash</code> before the filename. Execute the following:</p>
+                    <pre class="config">bash sample.sh</pre>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> bash sample.sh
+Hello there! Here is the calendar for this month:
+     April 2016
+Su Mo Tu We Th Fr Sa
+                1  2 
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>You can avoid having to type bash in front of the filename by making the file "executable" for all users. Run the following commands:</p>
+                    <pre class="config">ls -l sample.sh
+chmod a+x sample.sh
+ls -l sample.sh
+./sample.sh</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls -l sample.sh
+-rw-rw-r-- 1 sysadmin sysadmin 73 Apr  9 22:44 sample.sh
+<b class="prompt">sysadmin@localhost:~$</b> chmod a+x sample.sh
+<b class="prompt">sysadmin@localhost:~$</b>./sample.sh
+Hello there! Here is the calendar for this month:
+     April 2016
+Su Mo Tu We Th Fr Sa
+                1  2 
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p class="alert alert-info">The <code>chmod</code> command is used to change permissions on the file so that the file can be executed.</p>
+
+                </div>
+                <div>
+                    <h3><u>Run a Shell Command "Within" Another Shell Command</u></h3>
+
+                    <p>A common feature used in scripting is "backquoting". With this technique, you can run a shell command "within" another shell command. The outcome of the internal command will be returned as an argument to the external command. Add the following to the bottom of the <code class="console">sample.sh</code> file:</p>
+                    <pre class="config">echo "Today is" `date +%A`</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat sample.sh
+#!/bin/bash
+echo "Hello there! Here is the calendar for this month:"
+cal
+echo "Today is" `date +%A`
+<b class="prompt">sysadmin@localhost:~$</b>./sample.sh
+Hello there! Here is the calendar for this month:
+     April 2016
+Su Mo Tu We Th Fr Sa
+                1  2 
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+
+Today is Friday
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Tip For Run Scripts Without Prefix "./"</u></h3>
+
+                    <p>You have been using <b>./</b> in front of the sample.sh filename to indicate that the file is in the current directory. Execute the following to see how the shell would fail to find the file if you don't use the <b>./</b>:</p>
+                    <pre class="config">sample.sh</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> sample.sh
+-bash: sample.sh: command not found
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Recall that the <i>$PATH</i> variable is used to search for commands that you type. Execute the following to see the <i>$PATH</i> variable for your account:</p>
+                    <pre class="config">echo $PATH</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> echo $PATH
+/home/sysadmin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Note that <code class="console">/home/sysadmin/bin</code>(/home/[your_username]/bin) is one of the directories in the $PATH variable. This is a great place to put your shell scripts:</p>
+                    <pre class="config">mkdir bin
+mv sample.sh bin
+sample.sh</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> mkdir bin
+<b class="prompt">sysadmin@localhost:~$</b> mv sample.sh bin
+<b class="prompt">sysadmin@localhost:~$</b> sample.sh
+Hello there! Here is the calendar for this month:
+     April 2016
+Su Mo Tu We Th Fr Sa
+                1  2 
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+
+Today is Friday
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+
+                </div>
+                <div>
+                    <h3><u>Script With an If Statement</u></h3>
+
+                    <p>Scripts that are more complex may make use of conditional execution. A conditional expression, like the <code>if</code> statement, can make use of the outcome of a command called <code>test</code>. The <code>test</code> statement compares two numbers (or two strings) for things like "equal to", "less than", etc. <br>Create the following file (<i>drive.sh</i>) and make it executable to see how the <code>if</code> and <code>test</code> statements work. Begin by placing the following in <i>drive.sh</i>:</p>
+
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Enter this column into drive.sh</th>
+                                <th>This column describes the code (don't enter into the file)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#!/bin/bash</td>
+                            </tr>
+                            <tr>
+                                <td>echo "Please enter your age"</td>
+                                <td># print a prompt</td>
+                            </tr>
+                            <tr>
+                                <td>read age</td>
+                                <td># read user input and place in the $age variable</td>
+                            </tr>
+                            <tr>
+                                <td>if test $age -lt 16</td>
+                                <td># test $age -lt 16 returns "true" if $age is numerically less then 16</td>
+                            </tr>
+                            <tr>
+                                <td>then</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;echo "You are not old enough to drive."</td>
+                                <td># executes when test is true</td>
+                            </tr>
+                            <tr>
+                                <td>else</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;echo "You can drive!"</td>
+                                <td># executes when test is false</td>
+                            </tr>
+                            <tr>
+                                <td>fi</td>
+                                <td># This ends the if statement</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Then make the file executable and run it:</p>
+                    <pre class="config">cat drive.sh
+chmod a+x drive.sh
+./drive.sh</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat drive.sh
+#!/bin/bash
+echo "Please enter your age"
+read age
+if test $age -lt 16
+then
+   echo "You are not old enough to drive."    
+else
+   echo "You can drive!"     
+fi
+<b class="prompt">sysadmin@localhost:~$</b> chmod a+x drive.sh
+<b class="prompt">sysadmin@localhost:~$</b> ./drive.sh
+Please enter your age  
+14
+You are not old enough to drive.
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p class="alert alert-danger"><b>Note:</b> $age must be an integer value. If not, the program will crash.</p>
+                    <p>The test statement is automatically called when you place its arguments within square brackets [ ] surrounded by spaces. Modify the <code>if</code> line of <code class="console">drive.sh</code> so it looks like the following:</p>
+                    <pre class="config">if [ $age -lt 16 ]</pre>
+                    <p>Then run the program again.</p>
+                    <pre class="config">cat drive.sh
+./drive.sh</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat drive.sh
+#!/bin/bash
+echo "Please enter your age"
+read age
+if [ $age -lt 16 ]
+then
+   echo "You are not old enough to drive."    
+else
+   echo "You can drive!"     
+fi
+<b class="prompt">sysadmin@localhost:~$</b> ./drive.sh
+Please enter your age  
+21
+You can drive!
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p class="alert alert-info">To see a full list of test conditions, run the command <code>man test</code>.</p>
+                    <p class="alert alert-danger"><b>Important:</b> There must be spaces around the square brackets. [$age -lt 16] would fail, but [ $age -lt 16 ] would work.</p>
+                </div>
+                <div>
+                    <h3><u>Script With an If Statement and Commands</u></h3>
+
+                    <p>You can also use the outcome of other shell commands as they all return "success" or "failure". For example, create and run the following program, which can be used to determine if a user account is on this system. Add the following to <i>check.sh</i></p>
+                    <pre class="config">#!/bin/bash
+echo "Enter a username to check: "
+read name
+if grep $name /etc/passwd > /dev/null
+then
+    echo "$name is on this system"
+else
+    echo "$name does not exist"
+fi
+</pre>
+                    <p>Then run the following commands:</p>
+                    <pre class="config">chmod a+x check.sh
+./check.sh</pre>
+                    <p>When prompted for a username, give the value of "root". Execute the command again (<code>./check.s</code>h) and provide the value of "bobby". Your screen should look like the following:</p>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat check.sh
+#!/bin/bash
+echo "Enter a username to check: "
+read name
+if grep $name /etc/passwd > /dev/null
+then
+    echo "$name is on this system"     
+else
+    echo "$name does not exist"    
+fi
+<b class="prompt">sysadmin@localhost:~$</b> chmod a+x check.sh
+<b class="prompt">sysadmin@localhost:~$</b> ./check.sh
+Enter a username to check: 
+root
+root is on this system
+<b class="prompt">sysadmin@localhost:~$</b> ./check.sh
+Enter a username to check:
+bobby
+bobby does not exist
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+
+                <div>
+                    <h3><u>Script With a Loop</u></h3>
+
+                    <p>Another common conditional statement is called the <code>while</code> loop. This statement is used to execute code repeatedly as long as a conditional check returns "true". Begin by placing the following in a file named <i>num.sh</i>:</p>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Enter this column into num.sh</th>
+                                <th>This column describes the code (don't enter into the file)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#!/bin/bash</td>
+                            </tr>
+                            <tr>
+                                <td>echo "Please enter a number greater than 100"</td>
+                            </tr>
+                            <tr>
+                                <td>read num</td>
+                            </tr>
+                            <tr>
+                                <td>while [ $num -le 100 ]</td>
+                                <td># Execute code from "do" to "done if test condition is true</td>
+                            </tr>
+                            <tr>
+                                <td>do</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;echo "$num is NOT greater than 100."</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;echo "Please enter a number greater than 100"</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;read num</td>
+                            </tr>
+                            <tr>
+                                <td>done</td>
+                                <td># This ends the while statement</td>
+                            </tr>
+                            <tr>
+                                <td>echo "Finally, $num is greater than 100"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Then make the file executable and run it:</p>
+                    <pre class="config">chmod a+x num.sh
+./num.sh</pre>
+                    <p>When prompted for a number, enter 25. When prompted again, enter 99. Finally, enter 101 when prompted for a number the third time. Your screen should look like the following:</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat num.sh
+#!/bin/bash
+echo "Please enter a number greater than 100"
+read num
+while [ $num -le 100 ]   
+do
+    echo "$num is NOT greater than 100."
+    echo "Please enter a number greater than 100."
+    read num     
+done
+echo "Finally, $num is greater than 100"
+<b class="prompt">sysadmin@localhost:~$</b> chmod a+x num.sh
+<b class="prompt">sysadmin@localhost:~$</b> ./num.sh
+Please enter a number greater than 100   
+25
+25 is NOT greater than 100.
+Please enter a number greater than 100.  
+99
+99 is NOT greater than 100.
+Please enter a number greater than 100. 
+101
+Finally, 101 is greater than 100
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>If the conditional check for the <code>while</code> statement ( [ $num -le 100 ] ) returns true, then the statements between <i>do</i> and <i>done</i> are executed.<br>Once those statements have completed executing, the conditional check for the <code>while</code> statement is checked again. If true again, then again the statements between <i>do</i> and <i>done</i> are executed.<br>This will continue repeating until the <code>while</code> condition returns false, or when the value is greater than 100.</p>
+                </div>
+                <div>
+                    <h3><u>Using Scripting Code on the Command Line</u></h3>
+
+                    <p>Scripting code is part of the BASH shell, which means you can use these statements on the command line just like you use them in a shell script. This can be useful for a statement like the <code>for</code> statement, a statement that will assign a list of values one at a time to a variable. This allows you to perform a set of operations on each value. For example, run the following on the command line:</p>
+                    <pre class="config">for name in /etc/passwd /etc/hosts /etc/group
+do
+    wc $name
+done</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> for name in /etc/passwd /etc/hosts /etc/group
+> do
+>     wc $name
+> done
+  24   30 1001 /etc/passwd
+  7  15 161 /etc/hosts
+  46  46 561 /etc/group
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Note that the wc command was run three times: once for <code class="console">/etc/passwd</code>, once for
+                        <code class="console">/etc/hosts</code> and once for <code class="console">/etc/group</code>.</p>
+
+
+                </div>
+                <div>
+                    <h3><u>Creating Multiple Files Using Loop</u></h3>
+
+                    <p>Often the <code>seq</code> command is used in conjunction with the <code>for</code> statement. The <code>seq</code> command can generate a list of integer values, for instance from 1 to 10. <br>For example, run the following on the command line to create 12 files named test1, test2, test3, etc. (up to test12):</p>
+                    <pre class="config">ls
+for num in `seq 1 12`
+do
+    touch test$num
+done
+ls</pre>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls
+Desktop    Downloads  Pictures  Templates  check.sh  num.sh
+Documents  Music      Public    Videos     drive.sh
+<b class="prompt">sysadmin@localhost:~$</b> for num in `seq 1 12`
+> do
+>   touch test$num
+> done
+<b class="prompt">sysadmin@localhost:~$</b>ls
+Desktop    Music     Templates  drive.sh  test10  test2  test5  test8
+Documents  Pictures  Videos     num.sh    test11  test3  test6  test9
+Downloads  Public    check.sh   test1     test12  test4  test7
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>

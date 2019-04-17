@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keyword" content="Linux,Linux Commands">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>My Library</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_map"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="../index.html" class="logo">My Library</a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+            </div>
+            <!--  search form end -->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+<i class="icon_menu-square_alt2"></i>
+<span>Linux</span>
+<span class="menu-arrow arrow_carrot-right"></span>
+</a>
+                        <ul class="sub">
+                            <li><a class="" href="IntroToCMD.html">Introduction to Command Line</a></li>
+                            <li><a class="" href="GettingHelp.html">Getting Help</a></li>
+                            <li><a class="" href="FindingFiles.html">Search for Files</a></li>
+                            <li><a class="" href="ViewSearchReg.html">Display, Search Text &amp; Regex</a></li>
+                            <li><a class="" href="ChangeAndListFiles.html">List &amp; Change Directories</a></li>
+                            <li><a class="" href="CopyMoveAndDelete.html">Copy Move &amp; Delete</a></li>
+                            <li><a class="" href="Archiving.html">Archiving</a></li>
+                            <li><a class="" href="PipesRedir.html">Redirection &amp; Pipes</a></li>
+                            <li><a class="" href="TextEditors.html">Linux Text Editors</a></li>
+                            <li><a class="" href="BasicScripting.html">Basic Scripting</a></li>
+                            <li><a class="" href="HardwareInfo.html">Hardware Information</a></li>
+                            <li><a class="" href="KernelAndProcessInfo.html">Kernel &amp; Process Information</a></li>
+                            <li><a class="" href="SystemLogs.html">System Logs</a></li>
+                            <li><a class="" href="NetworkConfig.html">Network Configuration</a></li>
+                            <li><a class="" href="UserAndGroupAcc.html">User &amp; Group Accounts</a></li>
+                            <li><a class="" href="TheRootUser.html">The Root User</a></li>
+                            <li><a class="" href="CreateUsersAndGroups.html">Create Users &amp; Groups</a></li>
+                            <li><a class="" href="OwnershipsAndPermissions.html">Ownerships &amp; Permissions</a></li>
+                            <li><a class="" href="SpecialPermissions.html">Special Permissions</a></li>
+                            <li><a class="" href="HardAndSoftLinks.html">Hard &amp; Soft Links</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- Responsive Header/Footer -->
+                <h1>Pipes Redirection and Regex</h1>
+
+                <div>
+                    <h3><u>Redirecting Output to File</u></h3>
+                    <p>Use the redirection symbol <code>&lt</code> to redirect the output from the normal output of <i>stdout</i> (terminal) to a file.</p>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> echo "Hello World"
+Hello World
+<b class="prompt">sysadmin@localhost:~$</b> echo "Hello World" > mymessage
+<b class="prompt">sysadmin@localhost:~$</b> cat mymessage
+Hello World
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>The first command echos the message (<i>stdout</i>) to the terminal. <br>The second command redirects the output; instead of sending it to the terminal, the output is sent to a file called <code class="console">mymessage</code>. <br>The last command displays the contents of the <code class="console">mymessage</code> file.</p>
+                </div>
+                <div>
+                    <h3><u>Problem With Redirecting Output to File</u></h3>
+                    <p>When you use the <code>&lt</code> symbol to redirect stdout, the contents of the file are first destroyed.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat mymessage
+Hello World
+<b class="prompt">sysadmin@localhost:~$</b> echo "Greetings" > mymessage
+<b class="prompt">sysadmin@localhost:~$</b> cat mymessage
+Greetings
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Notice that using one redirection symbol overwrites an existing file. This is called "clobbering" a file.</p>
+                </div>
+                <div>
+                    <h3><u>Avoiding Problem With Redirecting Output</u></h3>
+                    <p>You can avoid clobbering a file by using <code>&lt&lt</code> instead of <code>&lt</code>. By using <code>&lt&lt</code> you append to a file.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat mymessage
+Greetings
+<b class="prompt">sysadmin@localhost:~$</b> echo "How are you?" &lt&lt mymessage
+<b class="prompt">sysadmin@localhost:~$</b> cat mymessage
+Greetings
+How are you?
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Notice that by using <code>&lt</code> all existing data is preserved and the new data is appended at the end of the file.</p>
+                </div>
+                <div>
+                    <h3><u>Error Messages Output</u></h3>
+                    <p>Normally, when you execute a command, the output is displayed in the terminal window. This output (also called a channel) is called standard output, symbolized by the term <i>stdout</i>. <br>The file descriptor number for this channel is 1.
+
+                        <br>Standard error (<i>stderr</i>) occurs when an error occurs during the execution of a command; it has a file descriptor of 2. Error messages are also sent to the terminal window by default.
+                        <br><br>The <code>find</code> command is a good command to demonstrate how <i>stderr</i> works. This command searches the filesystem for files based on criteria such as filename.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find /etc -name hosts
+find: `/etc/ssl/private': Permission denied
+/etc/hosts
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p class="alert alert-danger">Notice the error message indicating you do not have permission to access certain files/directories. This is because as a regular user, you don't have right to "look inside" some directories. These types of error messages are sent to <i>stderr</i>, not <i>stdout</i>.</p>
+                </div>
+                <div>
+                    <h3><u>Redirecting Error Messages to a File</u></h3>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find /etc -name hosts 2> err.txt
+/etc/hosts
+<b class="prompt">sysadmin@localhost:~$</b> cat err.txt
+find: `/etc/ssl/private': Permission denied
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>Recall that the file descriptor for <i>stderr</i> is the number 2, so it is used along with the <code>1></code> symbol to redirect the <i>stderr</i> output to a file called <code class="console">err.txt</code>. <br>Note that <code>1></code> is the same as <code>1></code>.
+                        <br>Note: The previous example demonstrates why knowing redirection is important. If you want to "ignore" the errors that the <code>find</code> command displays, you can redirect those messages into a file and look at them later, making it easier to focus on the rest of the output of the command.</p>
+                </div>
+                <div>
+                    <h3><u>Redirecting Output into Separate Files</u></h3>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find /etc -name hosts > std.out 2> std.err
+<b class="prompt">sysadmin@localhost:~$</b> cat std.err
+find: `/etc/ssl/private': Permission denied
+<b class="prompt">sysadmin@localhost:~$</b> cat std.out
+/etc/hosts
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p class="alert alert-danger">Notice that a space is permitted but not required after the <code>&lt</code> redirection symbol.</p>
+                </div>
+                <div>
+                    <h3><u>Redirecting Both Channels to One File</u></h3>
+
+                    <p>To redirect both standard output (<i>stdout</i>) and standard error (<i>stderr</i>) to one file, first redirect <i>stdout</i> to a file and then redirect <i>stderr</i> to that same file by using the notation <code>2>&amp;1</code>.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> find /etc -name hosts > find.out 2>&1
+<b class="prompt">sysadmin@localhost:~$</b> cat find.out
+find: `/etc/ssl/private': Permission denied
+/etc/hosts
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                    <p>The <code>2>&amp;1</code> part of the command means send the <i>stderr</i> (channel 2) to the same place where <i>stdout</i> (channel 1) is going.</p>
+                </div>
+                <div>
+                    <h3><u>Translating Words</u></h3>
+
+                    <p>Standard input (<i>stdin</i>) can also be redirected. Normally <i>stdin</i> comes from the keyboard, but sometimes you want it to come from a file instead. <br>For example, the <code>tr</code> command translates characters, but it only accepts data from <i>stdin</i>, never from a filename given as an argument. This is great when you want to do something like capitalize data that is inputted from the keyboard (Note: Press <b>Control+d</b>, to signal the tr command to stop processing standard input).<br>Type following:</p>
+                    <pre class="config">
+tr a-z A-Z
+this is interesting
+how do I stop this?
+^D</pre>
+                    <p class="alert alert-info"><b>Note:</b> ^D symbolizes <b>Control+d</b></p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> tr a-z A-Z
+this is interesting
+THIS IS INTERESTING
+how do I stop this?
+HOW DO I STOP THIS?
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Redirecting Translated Words</u></h3>
+
+                    <p>The <code>tr</code> command accepts keyboard input (<i>stdin</i>), translates the characters and then sends the output to <i>stdout</i>.</p>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> tr A-Z a-z > myfile
+Wow, I SEE NOW
+This WORKS!
+<b class="prompt">sysadmin@localhost:~$</b> cat myfile
+wow, i see now
+this works!
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+
+                </div>
+                <div>
+                    <h3><u>Redirecting Input</u></h3>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cat myfile
+wow, i see now                                                                
+this works!
+<b class="prompt">sysadmin@localhost:~$</b> tr a-z A-Z &lt myfile
+WOW, I SEE NOW
+THIS WORKS!
+<b class="prompt">sysadmin@localhost:~$</b>
+</pre>
+                </div>
+                <div>
+                    <h3><u>Redirecting Between Commands</u></h3>
+
+                    <p>Another popular form of redirection is to take the output of one command and send it into another command as input. For example, the output of some commands can be massive, resulting in the output scrolling off the screen too quickly to read. Execute the following command to take the output of the <code>ls</code> command and send it into the <code>more</code> command which displays one page of data at a time.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> ls -l /etc | more
+total 372
+-rw-r--r-- 1 root root    2981 Jan 28  2015 adduser.conf
+-rw-r--r-- 1 root root      10 Jan 28  2015 adjtime
+drwxr-xr-x 1 root root     900 Jan 29  2015 alternatives
+drwxr-xr-x 1 root root     114 Jan 29  2015 apparmor.d
+drwxr-xr-x 1 root root     168 Oct  1  2014 apt
+-rw-r--r-- 1 root root    2076 Apr  3  2012 bash.bashrc
+drwxr-xr-x 1 root root      72 Jan 28  2015 bash_completion.d
+drwxr-sr-x 1 root bind     342 Jan 29  2015 bind
+-rw-r--r-- 1 root root     356 Apr 19  2012 bindresvport.blacklist
+-rw-r--r-- 1 root root     321 Mar 30  2012 blkid.conf
+lrwxrwxrwx 1 root root      15 Jun 18  2014 blkid.tab -> /dev/.blkid.tab
+drwxr-xr-x 1 root root      16 Jan 29  2015 ca-certificates
+-rw-r--r-- 1 root root    7464 Jan 29  2015 ca-certificates.conf
+drwxr-xr-x 1 root root      14 Jan 29  2015 calendar
+drwxr-xr-x 1 root root      24 Jan 29  2015 cron.d
+drwxr-xr-x 1 root root     134 Jan 29  2015 cron.daily
+drwxr-xr-x 1 root root      24 Jan 29  2015 cron.hourly
+drwxr-xr-x 1 root root      24 Jan 29  2015 cron.monthly
+-rw-r--r-- 1 root root    2969 Mar 15  2012 debconf.conf
+--More--
+</pre>
+                    <p>You will need to press the <b>spacebar</b> to continue or you can also press <b>CTRL+c</b> to escape this listing. <br>The <code>cut</code> command is useful for extracting fields from files that are either delimited by a character, like the colon (:) in <code class="console">/etc/passwd</code>, or that have a fixed width. It will be used in the next few examples as it typically provides a great deal of output that we can use to demonstrate using the <b>|</b> character.</p>
+                </div>
+                <div>
+                    <h3><u>Extracting Usernames With Command cut</u></h3>
+
+                    <p>In the following example, you will use a command called <code>cut</code> to extract all of the usernames from a database called <code class="console">/etc/passwd</code> (a file that contains user account information).</p>
+
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cut -d: -f1 /etc/passwd
+root
+daemon  
+bin 
+sys
+sync
+games 
+man  
+lp 
+mail 
+news 
+uucp
+proxy
+www-data
+backup 
+list  
+irc
+gnats
+nobody
+libuuid
+syslog
+bind 
+sshd
+operator
+</pre>
+                </div>
+                <div>
+                    <h3><u>Redirecting Usernames to sort Command</u></h3>
+
+                    <p>In the following example, you will use a command called <code>cut</code> to extract all of the usernames from a database called <code class="console">/etc/passwd</code> (a file that contains user account information).</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cut -d: -f1 /etc/passwd | sort
+backup  
+bin
+bind
+daemon
+games
+gnats 
+irc
+libuuid
+list   
+lp 
+mail  
+man
+news
+nobody
+operator
+proxy
+root 
+sshd 
+sync  
+sys
+</pre>
+                </div>
+                <div>
+                    <h3><u>Redirecting Users From sort Command to more Command</u></h3>
+
+                    <p>Now the output is sorted, but it still scrolls off the screen. Send the output of the <code>sort</code> command to the <code>more</code> command to solve this problem.</p>
+                    <pre>
+<b class="prompt">sysadmin@localhost:~$</b> cut -d: -f1 /etc/passwd | sort | more
+backup  
+bin
+bind
+daemon
+games
+gnats 
+irc
+libuuid
+list   
+lp 
+mail  
+man
+news
+nobody
+operator
+proxy
+root 
+sshd 
+sync  
+sys
+sysadmin
+syslog 
+uucp
+--More--
+</pre>
+                </div>
+
+
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>
